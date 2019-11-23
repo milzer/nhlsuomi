@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NHL Suomi</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    table {
+      margin: auto;
+    }
+
+    th,
+    td {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row text-center my-3">
+
+      <div class="col-12">
+        <div class="card m-1">
+          <div class="card-header">
+            <h3>Latest Hilights</h3>
+            <small>{{ timestamp }}</small>
+          </div>
+          <div class="card-body">
+            {% for title, url in hilights %}
+            {% if url %}
+            <div>
+              <a href="#videoModal" data-toggle="modal" data-target="#videoModal" data-url="{{ url }}">
+                {{ title }}
+              </a>
+            </div>
+            {% else %}
+            <div class="my-2">
+              <strong>{{ title }}</strong>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      {% for result in results %}
+      <div class="col-lg-6 col-sm-12">
+        <div class="card m-1">
+          <div class="card-header">
+            <h2>
+              {{result.home.team}} {{result.home.score}} - {{result.away.score}}
+              {{result.away.team}}
+            </h2>
+            <small>
+              <a href="https://www.nhl.com/gamecenter/{{result.id}}" rel="noopener noreferrer">gamecenter</a>
+              {% set game = result.home.team + result.away.team %}
+              {% if game in recaps %}
+              {% set url = recaps[game] %}
+              &nbsp;-&nbsp;<a href="#videoModal" data-toggle="modal" data-target="#videoModal" data-url="{{ url }}">recap</a>
+              {% endif %}
+            </small>
+
+          </div>
+
+          {% if result.players %}
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col">&plusmn;</th>
+                  <th scope="col">S</th>
+                  <th scope="col">H</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for player in result.players %}
+                {% set row_class = 'text-muted' if player.goals + player.assists == 0 else '' %}
+                <tr class="{{ row_class }}">
+                  <td class="text-right">
+                    <span class="d-none d-sm-inline-block">{{ player.first_name }} </span>
+                    <span>{{ player.last_name }}</span>
+                  </td>
+                  {% if player.sv %}
+                  <td>{{ player.sv }}%</td>
+                  {% else %}
+                  <td>{{ player.goals }}+{{ player.assists }}</td>
+                  {% endif %}
+                  <td>{{ player.toi }}</td>
+                  {% if player.sv %}
+                  <td colspan=3>{{ player.shots }}</td>
+                  {% else %}
+                  <td>{{ player.plus_minus }}</td>
+                  <td>{{ player.shots }}</td>
+                  <td>{{ player.hits }}</td>
+                  {% endif %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <video id="video" width="100%" height="100%" controls>
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script>
+    $('#videoModal').on('show.bs.modal', function (event) {
+      const url = $(event.relatedTarget).data('url');
+      const video = $(this).find('#video');
+      const source = video.find('source');
+      if (!source) {
+        video.append('<source type="video/mp4"/>');
+      }
+      video.attr('src', url)
+      video[0].load()
+    })
+
+    $('#videoModal').on('hidden.bs.modal', function (e) {
+      $(this).find('#video')[0].pause();
+      $(this).find('#video source').remove();
+    })
+  </script>
+
+</body>
+
+</html>

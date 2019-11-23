@@ -1,0 +1,9 @@
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.code-workspace.code-workspace
+.coverage
+.vscode/
+.env/
+config.json
+nhl.html
