@@ -2,7 +2,7 @@
 
 Generate a page of NHL scores, hilight videos and selected player stats based on country and name filters
 
-### Prerequisites
+### Requirements
 
 * Python 3.7
 * jinja2
@@ -18,10 +18,10 @@ source .env/bin/activate
 pip install --upgrade pip
 ```
 
-Install packages:
+Install required packages:
 
 ```
-pip install jinja2 praw pytest
+pip install -r requirements.txt
 ```
 
 Create config JSON (see [example.config.json](example.config.json)) and run the script:
