@@ -60,7 +60,7 @@ def filter_players(players: dict, nationalities: List[str] = []) -> Iterable[dic
             shots = pluck(player, 'stats.skaterStats.shots', 0)
 
         nationality = pluck(player, 'person.nationality', '?')
-        if not (assists > 3 or goals > 2):
+        if not ((goals + assists) > 3 or goals > 2):
             if nationality not in nationalities:
                 continue
 
