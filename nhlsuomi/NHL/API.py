@@ -1,5 +1,5 @@
-import pathlib
 import json
+import pathlib
 import urllib.request
 
 BASE_URL = 'https://statsapi.web.nhl.com'

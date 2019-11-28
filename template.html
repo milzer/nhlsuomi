@@ -18,6 +18,15 @@
       padding-left: 8px;
       padding-right: 8px;
     }
+
+    .fade-in-out {
+      animation: fading 2s infinite
+    }
+    @keyframes fading {
+      0% { opacity: 0.2 }
+      50% { opacity:1 }
+      100% { opacity:0.2 }
+    }
   </style>
 </head>
 
@@ -57,6 +66,9 @@
               {{result.home.team}} {{result.home.score}} - {{result.away.score}}
               {{result.away.team}}
             </h2>
+            {% if result.status == 2 %}
+            <div><small class="text-danger fade-in-out">live</small></div>
+            {% endif%}
             <small>
               <a href="https://www.nhl.com/gamecenter/{{result.id}}" rel="noopener noreferrer">gamecenter</a>
               {% set game = result.home.team + result.away.team %}

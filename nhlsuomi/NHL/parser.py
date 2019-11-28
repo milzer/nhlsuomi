@@ -19,8 +19,19 @@ def parse_games(obj: dict, timestamp: str) -> Iterable[dict]:
         if date.get('date') == timestamp
     ))
 
+    def status(game):
+        state = pluck(game, 'status.abstractGameState')
+        if state == 'Live':
+            return 2
+        elif state == 'Final':
+            return 1
+        else:
+            return 0
+
+
     return [
         {
+            'status': status(game),
             'id': game['gamePk'],
             'home': {
                 'team': pluck(game, 'teams.home.team.abbreviation', '???'),
@@ -99,7 +110,8 @@ def parse_players(games: List[dict], nationalities: List[str] = []) -> Iterable[
             key=itemgetter('value'),
             reverse=True
         )
-        value = sum((p.get('value', 0) for p in players))
+        status_value = game.get('status') * 1000
+        value = sum((p.get('value', 0) for p in players)) + status_value
 
         game = {
             **game,
