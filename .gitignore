@@ -7,3 +7,4 @@ __pycache__/
 .env/
 config.json
 nhl.html
+games-raw.json
