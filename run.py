@@ -21,7 +21,8 @@ if __name__ == "__main__":
 
     date = (datetime.date.today() - datetime.timedelta(1)).strftime('%Y-%m-%d')
 
-    games = API.fetch_games(date)
+    dumpfile = 'games-raw.json' if args.test_dump else ''
+    games = API.fetch_games(date, dumpfile=dumpfile)
     icydata_submissions = icydata.fetch_submissions(**config.get('reddit'))
 
     if args.test_dump:
