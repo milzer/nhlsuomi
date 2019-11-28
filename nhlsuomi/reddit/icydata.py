@@ -5,7 +5,9 @@ from typing import Iterable, List, Mapping, Tuple
 
 import praw
 
-USER_AGENT = 'NHLSuomi/0.3'
+from nhlsuomi import VERSION
+
+USER_AGENT = f'NHLSuomi/{VERSION}'
 DEFAULT_LIMIT = 300
 
 
