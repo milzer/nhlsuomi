@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Iterable, List, Mapping, Tuple
 
 import praw
+from more_itertools import unique_everseen
 
 from nhlsuomi import VERSION
 
@@ -73,4 +74,4 @@ def parse_hilights_recaps(submissions: Iterable[dict],
                     prev_date = date
                     hilights.append((title, url))
 
-    return hilights, recaps
+    return list(unique_everseen(hilights)), recaps
