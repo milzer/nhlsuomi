@@ -37,10 +37,10 @@ if __name__ == "__main__":
         exit(0)
 
     parsed_games = parser.parse_games(games, date)
-    results = parser.parse_players(parsed_games, config.get('nationalities'))
+    results, hilight_players = parser.parse_players(parsed_games, config.get('nationalities'))
     hilights, recaps = icydata.parse_hilights_recaps(
         icydata_submissions,
-        config.get('hilights'),
+        config.get('hilights') + hilight_players,
         config.get('tzoffset', DEFAULT_TZOFFSET)
     )
 

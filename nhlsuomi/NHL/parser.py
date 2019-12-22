@@ -99,6 +99,7 @@ def parse_players(games: List[dict], nationalities: List[str] = []) -> Iterable[
         ))
 
     result = []
+    hilight_players = []
 
     for game in games:
         game_id = str(game.get('id'))
@@ -113,6 +114,8 @@ def parse_players(games: List[dict], nationalities: List[str] = []) -> Iterable[
         status_value = game.get('status') * 1000
         value = sum((p.get('value', 0) for p in players)) + status_value
 
+        hilight_players += list(filter(bool, (p['last_name'] for p in players)))
+
         game = {
             **game,
             **{
@@ -122,4 +125,7 @@ def parse_players(games: List[dict], nationalities: List[str] = []) -> Iterable[
         }
         result.append(game)
 
-    return sorted(result, key=itemgetter('value'), reverse=True)
+    return (
+        sorted(result, key=itemgetter('value'), reverse=True),
+        list(set(hilight_players))
+    )
