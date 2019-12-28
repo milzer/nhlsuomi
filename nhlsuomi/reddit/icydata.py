@@ -31,10 +31,12 @@ def fetch_submissions(client_id: str, client_secret: str,
 
 def parse_hilights_recaps(submissions: Iterable[dict],
                           keywords: Iterable[str],
-                          tzoffset_hours: int) -> Tuple[List, Mapping]:
+                          tzoffset_hours: int,
+                          *,
+                          _now: callable = datetime.now) -> Tuple[List, Mapping]:
 
     tzoffset = tzoffset_hours * 60 * 60
-    prev_date = None
+    today = _now().strftime('%d.%m.%Y')
     hilights = []
     recaps = OrderedDict()
     team_abbrevs = {
@@ -68,10 +70,7 @@ def parse_hilights_recaps(submissions: Iterable[dict],
                         .utcfromtimestamp(submission['created'] + tzoffset) \
                         .strftime('%d.%m.%Y')
 
-                    if date != prev_date:
-                        hilights.append((date, None))
-
-                    prev_date = date
-                    hilights.append((title, url))
+                    if date == today:
+                        hilights.append((title, url))
 
     return list(unique_everseen(hilights)), recaps
