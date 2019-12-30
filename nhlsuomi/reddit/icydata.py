@@ -1,6 +1,6 @@
 import re
 from collections import OrderedDict
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Iterable, List, Mapping, Tuple
 
 import praw
@@ -36,7 +36,7 @@ def parse_hilights_recaps(submissions: Iterable[dict],
                           _now: callable = datetime.now) -> Tuple[List, Mapping]:
 
     tzoffset = tzoffset_hours * 60 * 60
-    today = _now().strftime('%d.%m.%Y')
+    targetdate = (_now() - timedelta(days=1)).strftime('%d.%m.%Y')
     hilights = []
     recaps = OrderedDict()
     team_abbrevs = {
@@ -67,10 +67,10 @@ def parse_hilights_recaps(submissions: Iterable[dict],
             for keyword in keywords:
                 if keyword.lower() in title_low:
                     date = datetime \
-                        .utcfromtimestamp(submission['created'] + tzoffset) \
+                        .utcfromtimestamp(submission['created']) \
                         .strftime('%d.%m.%Y')
 
-                    if date == today:
+                    if date == targetdate:
                         hilights.append((title, url))
 
     return list(unique_everseen(hilights)), recaps

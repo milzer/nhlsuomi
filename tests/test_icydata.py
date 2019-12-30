@@ -18,7 +18,7 @@ class Test_icydata(unittest.TestCase):
 
         keywords = ['Laine', 'Korpisalo']
         hilights, _ = icydata.parse_hilights_recaps(self.submissions, keywords, 6,
-                                                    _now=lambda: datetime(2019, 11, 22))
+                                                    _now=lambda: datetime(2019, 11, 23))
         expected = [
             ('Laine scores goal', 'https://wscdsszoominwestus.azureedge.net/publish/d663e54d-db5e-4c7d-b3d8-9a0b548aebd4.mp4'),
             ('Korpisalo makes save', 'https://wscdsszoominwestus.azureedge.net/publish/6efb1f8b-0e2d-498a-aaae-839980d3139c.mp4'),
@@ -31,7 +31,7 @@ class Test_icydata(unittest.TestCase):
 
         keywords = ['Laine', 'Korpisalo']
         hilights, _ = icydata.parse_hilights_recaps(self.submissions, keywords, 6,
-                                                    _now=lambda: datetime(2019, 11, 23))
+                                                    _now=lambda: datetime(2019, 11, 24))
         expected = []
         self.assertEqual(hilights, expected)
 
