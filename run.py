@@ -15,6 +15,8 @@ argparser.add_argument('--test-dump', help='Dump test data', action='store_true'
 args = argparser.parse_args()
 
 DEFAULT_HILIGHTS_AGE_LIMIT = 18
+DEFAULT_MIN_GOALS = 9
+DEFAULT_MIN_POINTS = 9
 
 if __name__ == "__main__":
     config = json.loads(args.config.read())
@@ -37,7 +39,12 @@ if __name__ == "__main__":
         exit(0)
 
     parsed_games = parser.parse_games(games, date)
-    results, hilight_players = parser.parse_players(parsed_games, config.get('nationalities'))
+    results, hilight_players = parser.parse_players(
+        parsed_games,
+        config.get('nationalities', []),
+        config.get('min_goals', DEFAULT_MIN_GOALS),
+        config.get('min_points', DEFAULT_MIN_POINTS),
+        )
     hilights, recaps = icydata.parse_hilights_recaps(
         icydata_submissions,
         config.get('hilights') + hilight_players,

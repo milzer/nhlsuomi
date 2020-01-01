@@ -6,6 +6,8 @@
         "client_secret": ""
     },
     "nationalities": ["FIN"],
+    "min_goals": 3,
+    "min_points": 5,
     "template": "template.html",
     "output": "nhl.html",
     "hilights_age_limit": 18,

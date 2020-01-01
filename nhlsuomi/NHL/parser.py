@@ -47,7 +47,10 @@ def parse_games(obj: dict, timestamp: str) -> Iterable[dict]:
     ]
 
 
-def filter_players(players: dict, nationalities: List[str] = []) -> Iterable[dict]:
+def filter_players(players: dict,
+                   nationalities: List[str],
+                   min_goals: int,
+                   min_points: int) -> Iterable[dict]:
     for player in players.values():
         goalie_toi = pluck(player, 'stats.goalieStats.timeOnIce', '0:00')
 
@@ -71,7 +74,7 @@ def filter_players(players: dict, nationalities: List[str] = []) -> Iterable[dic
             shots = pluck(player, 'stats.skaterStats.shots', 0)
 
         nationality = pluck(player, 'person.nationality', '?')
-        if not ((goals + assists) > 3 or goals > 2):
+        if not ((goals + assists) >= min_points or goals >= min_goals):
             if nationality not in nationalities:
                 continue
 
@@ -91,11 +94,17 @@ def filter_players(players: dict, nationalities: List[str] = []) -> Iterable[dic
         }
 
 
-def parse_players(games: List[dict], nationalities: List[str] = []) -> Iterable[dict]:
+def parse_players(games: List[dict],
+                  nationalities: List[str],
+                  min_goals: int,
+                  min_points: int) -> Iterable[dict]:
+
     def _extract(boxscore, team):
         return list(filter_players(
             pluck(boxscore, f'teams.{team}.players'),
-            nationalities
+            nationalities,
+            min_goals,
+            min_points
         ))
 
     result = []
