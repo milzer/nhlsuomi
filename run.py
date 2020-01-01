@@ -14,7 +14,7 @@ argparser.add_argument('-c', '--config', type=argparse.FileType('r'),
 argparser.add_argument('--test-dump', help='Dump test data', action='store_true')
 args = argparser.parse_args()
 
-DEFAULT_TZOFFSET = 6
+DEFAULT_HILIGHTS_AGE_LIMIT = 18
 
 if __name__ == "__main__":
     config = json.loads(args.config.read())
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     hilights, recaps = icydata.parse_hilights_recaps(
         icydata_submissions,
         config.get('hilights') + hilight_players,
-        config.get('tzoffset', DEFAULT_TZOFFSET)
+        config.get('hilights_age_limit', DEFAULT_HILIGHTS_AGE_LIMIT)
     )
 
     template_path = pathlib.Path(config.get('template'))

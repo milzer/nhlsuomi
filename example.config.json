@@ -5,10 +5,10 @@
         "client_id": "",
         "client_secret": ""
     },
-    "tzoffset": 6,
     "nationalities": ["FIN"],
     "template": "template.html",
     "output": "nhl.html",
+    "hilights_age_limit": 18,
     "hilights": [
         "shootout",
         "ovechkin"
