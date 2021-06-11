@@ -51,6 +51,15 @@ if __name__ == "__main__":
         config.get('hilights_age_limit', DEFAULT_HILIGHTS_AGE_LIMIT)
     )
 
+    schedule_config = config.get('schedule')
+    if schedule_config:
+        days = schedule_config['days']
+        schedule = API.fetch_upcoming_schedule(days)
+        del schedule_config['days']
+        schedule = parser.parse_schedule(schedule, **schedule_config)
+    else:
+        schedule = None
+
     template_path = pathlib.Path(config.get('template'))
     template = Template(template_path.read_text())
 
@@ -60,7 +69,8 @@ if __name__ == "__main__":
         results=results,
         hilights=hilights,
         recaps=recaps,
-        timestamp=timestamp
+        timestamp=timestamp,
+        schedule=schedule
     )
 
     output_path = pathlib.Path(config.get('output'))

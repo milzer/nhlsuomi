@@ -1,12 +1,13 @@
+from datetime import datetime
 from itertools import chain
 from operator import itemgetter
-from typing import Iterable, List
+from typing import Iterable, List, Mapping, Tuple
 
 from nhlsuomi.NHL.API import fetch_boxscore
-from nhlsuomi.NHL.utils import pluck
+from nhlsuomi.NHL.utils import dt_localizer, pluck
 
 
-def parse_games(obj: dict, timestamp: str) -> Iterable[dict]:
+def parse_games(obj: Mapping, timestamp: str) -> Iterable[Mapping]:
     total_games = obj.get('totalGames', 0)
 
     if total_games == 0:
@@ -47,10 +48,10 @@ def parse_games(obj: dict, timestamp: str) -> Iterable[dict]:
     ]
 
 
-def filter_players(players: dict,
+def filter_players(players: Mapping,
                    nationalities: List[str],
                    min_goals: int,
-                   min_points: int) -> Iterable[dict]:
+                   min_points: int) -> Iterable[Mapping]:
     for player in players.values():
         goalie_toi = pluck(player, 'stats.goalieStats.timeOnIce', '0:00')
 
@@ -94,10 +95,10 @@ def filter_players(players: dict,
         }
 
 
-def parse_players(games: List[dict],
+def parse_players(games: List[Mapping],
                   nationalities: List[str],
                   min_goals: int,
-                  min_points: int) -> Iterable[dict]:
+                  min_points: int) -> Iterable[Mapping]:
 
     def _extract(boxscore, team):
         return list(filter_players(
@@ -138,3 +139,43 @@ def parse_players(games: List[dict],
         sorted(result, key=itemgetter('value'), reverse=True),
         list(set(hilight_players))
     )
+
+
+def parse_schedule(schedule: Mapping,
+                   timezone: str,
+                   dt_format: str,
+                   hours: Tuple[int, int]) -> Iterable:
+    localize = dt_localizer(timezone)
+    hmin, hmax = hours
+
+    def parse_games():
+        for date in schedule['dates']:
+            for game in date['games']:
+                try:
+                    statuscode = int(pluck(game, 'status.statusCode', 0))
+                    if statuscode != 1:
+                        continue
+
+                    game_dt = localize(datetime.strptime(
+                        game['gameDate'],
+                        '%Y-%m-%dT%H:%M:%SZ'
+                    ))
+
+                    if game_dt < datetime.utcnow():
+                        continue
+
+                    if game_dt.hour < hmin or game_dt.hour > hmax:
+                        continue
+
+                    yield (
+                        game_dt,
+                        pluck(game, 'teams.home.team.name'),
+                        pluck(game, 'teams.away.team.name')
+                    )
+
+                except (TypeError, KeyError) as e:
+                    pass
+
+    for dt, home, away in sorted(parse_games()):
+        yield (dt.strftime(dt_format), home, away)
+

@@ -5,7 +5,9 @@
         "client_id": "",
         "client_secret": ""
     },
-    "nationalities": ["FIN"],
+    "nationalities": [
+        "FIN"
+    ],
     "min_goals": 3,
     "min_points": 5,
     "template": "template.html",
@@ -14,5 +16,14 @@
     "hilights": [
         "shootout",
         "ovechkin"
-    ]
+    ],
+    "schedule": {
+        "days": 7,
+        "timezone": "Europe/Helsinki",
+        "dt_format": "%-d.%-m. %H:%M",
+        "hours": [
+            0,
+            24
+        ]
+    }
 }
