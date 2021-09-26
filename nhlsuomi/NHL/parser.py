@@ -34,6 +34,7 @@ def parse_games(obj: Mapping, timestamp: str) -> Iterable[Mapping]:
         {
             'status': status(game),
             'id': game['gamePk'],
+            'type': game['gameType'],
             'home': {
                 'team': pluck(game, 'teams.home.team.abbreviation', '???'),
                 'score': pluck(game, 'teams.home.score', 0)

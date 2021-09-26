@@ -84,6 +84,9 @@
             {% if result.status == 2 %}
             <div><small class="text-danger fade-in-out">live</small></div>
             {% endif%}
+            {% if result.type == 'PR' %}
+            <div><small class="text-info">preseason</small></div>
+            {% endif%}
             <small>
               <a href="https://www.nhl.com/gamecenter/{{result.id}}" rel="noopener noreferrer">gamecenter</a>
               {% set game = result.home.team + result.away.team %}
