@@ -75,9 +75,12 @@ def filter_players(players: Mapping,
             shots = pluck(player, 'stats.skaterStats.shots', 0)
 
         nationality = pluck(player, 'person.nationality', '?')
-        if not ((goals + assists) >= min_points or goals >= min_goals):
-            if nationality not in nationalities:
-                continue
+        if (
+            goals + assists < min_points
+            and goals < min_goals
+            and nationality not in nationalities
+        ):
+            continue
 
         yield {
             'first_name': pluck(player, 'person.firstName', '?'),
