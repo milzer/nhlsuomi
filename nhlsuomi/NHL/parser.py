@@ -45,7 +45,10 @@ def parse_games(obj: Mapping, timestamp: str) -> Iterable[Mapping]:
             }
         }
         for game in games
-        if 'gamePk' in game
+        if (
+            'gamePk' in game
+            and pluck(game, 'status.detailedState') != 'Postponed'
+        )
     ]
 
 
