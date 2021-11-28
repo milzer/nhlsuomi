@@ -9,9 +9,18 @@ from nhlsuomi.NHL import API, parser
 from nhlsuomi.reddit import icydata
 
 argparser = argparse.ArgumentParser()
-argparser.add_argument('-c', '--config', type=argparse.FileType('r'),
-                       help='Config JSON', required=True)
-argparser.add_argument('--test-dump', help='Dump test data', action='store_true')
+argparser.add_argument(
+    '-c',
+    '--config',
+    type=argparse.FileType('r'),
+    help='Config JSON',
+    required=True
+)
+argparser.add_argument(
+    '--test-dump',
+    help='Dump test data',
+    action='store_true'
+)
 args = argparser.parse_args()
 
 DEFAULT_HILIGHTS_AGE_LIMIT = 18
@@ -21,15 +30,17 @@ DEFAULT_MIN_POINTS = 9
 if __name__ == "__main__":
     config = json.loads(args.config.read())
 
-    date = (datetime.date.today() - datetime.timedelta(1))
+    date = datetime.date.today() - datetime.timedelta(1)
 
     dumpfile = 'games-raw.json' if args.test_dump else ''
     games = API.fetch_games(date, dumpfile=dumpfile)
     icydata_submissions = icydata.fetch_submissions(**config.get('reddit'))
 
     if args.test_dump:
-        for data, filename in ((games, 'games.json'),
-                               (list(icydata_submissions), 'icydata.json')):
+        for data, filename in (
+            (games, 'games.json'),
+            (list(icydata_submissions), 'icydata.json')
+        ):
 
             path = pathlib.Path.cwd() / 'tests' / filename
             print(f'Dumping {path}...', end='')
@@ -44,7 +55,7 @@ if __name__ == "__main__":
         config.get('nationalities', []),
         config.get('min_goals', DEFAULT_MIN_GOALS),
         config.get('min_points', DEFAULT_MIN_POINTS),
-        )
+    )
     hilights, recaps = icydata.parse_hilights_recaps(
         icydata_submissions,
         config.get('hilights') + hilight_players,

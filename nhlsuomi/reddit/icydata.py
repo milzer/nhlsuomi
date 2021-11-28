@@ -12,14 +12,19 @@ USER_AGENT = f'NHLSuomi/{VERSION}'
 DEFAULT_LIMIT = 300
 
 
-def fetch_submissions(client_id: str, client_secret: str,
-                      username: str, password: str,
+def fetch_submissions(client_id: str,
+                      client_secret: str,
+                      username: str,
+                      password: str,
                       *,
                       limit: int = DEFAULT_LIMIT):
-
-    reddit = praw.Reddit(user_agent=USER_AGENT,
-                         client_id=client_id, client_secret=client_secret,
-                         username=username, password=password)
+    reddit = praw.Reddit(
+        user_agent=USER_AGENT,
+        client_id=client_id,
+        client_secret=client_secret,
+        username=username,
+        password=password
+    )
 
     for submission in reddit.subreddit('icydata').new(limit=limit):
         yield {
@@ -34,7 +39,6 @@ def parse_hilights_recaps(submissions: Iterable[dict],
                           hilights_age_limit: int,
                           *,
                           _now: callable = datetime.now) -> Tuple[List, Mapping]:
-
     date_limit = _now() - timedelta(hours=hilights_age_limit)
     hilights = []
     recaps = OrderedDict()

@@ -15,12 +15,13 @@ def parse_games(obj: Mapping, date: datetime.date) -> Iterable[Mapping]:
     if total_games == 0:
         return []
 
-    games = chain.from_iterable((
-        gamedate.get('games')
-        for gamedate
-        in obj.get('dates', [])
-        if gamedate.get('date') == date_str
-    ))
+    games = chain.from_iterable(
+        (
+            gamedate.get('games')
+            for gamedate in obj.get('dates', [])
+            if gamedate.get('date') == date_str
+        )
+    )
 
     def status(game):
         state = pluck(game, 'status.abstractGameState')
@@ -30,7 +31,6 @@ def parse_games(obj: Mapping, date: datetime.date) -> Iterable[Mapping]:
             return 1
         else:
             return 0
-
 
     return [
         {
@@ -76,7 +76,7 @@ def filter_players(players: Mapping,
 
         if sv:
             shots = pluck(player, 'stats.goalieStats.shots', 0)
-            value = (sv / 100)
+            value = sv / 100
         else:
             shots = pluck(player, 'stats.skaterStats.shots', 0)
 
@@ -108,14 +108,15 @@ def parse_players(games: List[Mapping],
                   nationalities: List[str],
                   min_goals: int,
                   min_points: int) -> Iterable[Mapping]:
-
     def _extract(boxscore, team):
-        return list(filter_players(
-            pluck(boxscore, f'teams.{team}.players'),
-            nationalities,
-            min_goals,
-            min_points
-        ))
+        return list(
+            filter_players(
+                pluck(boxscore, f'teams.{team}.players'),
+                nationalities,
+                min_goals,
+                min_points
+            )
+        )
 
     result = []
     hilight_players = []
@@ -133,7 +134,9 @@ def parse_players(games: List[Mapping],
         status_value = game.get('status') * 1000
         value = sum((p.get('value', 0) for p in players)) + status_value
 
-        hilight_players += list(filter(bool, (p['last_name'] for p in players)))
+        hilight_players += list(
+            filter(bool, (p['last_name'] for p in players))
+        )
 
         game = {
             **game,
@@ -142,6 +145,7 @@ def parse_players(games: List[Mapping],
                 'value': value
             }
         }
+
         result.append(game)
 
     return (
@@ -165,10 +169,12 @@ def parse_schedule(schedule: Mapping,
                     if statuscode != 1:
                         continue
 
-                    game_dt = localize(datetime.strptime(
-                        game['gameDate'],
-                        '%Y-%m-%dT%H:%M:%SZ'
-                    ))
+                    game_dt = localize(
+                        datetime.strptime(
+                            game['gameDate'],
+                            '%Y-%m-%dT%H:%M:%SZ'
+                        )
+                    )
 
                     if game_dt < datetime.utcnow():
                         continue
@@ -187,4 +193,3 @@ def parse_schedule(schedule: Mapping,
 
     for dt, home, away in sorted(parse_games()):
         yield (dt.strftime(dt_format), home, away)
-
