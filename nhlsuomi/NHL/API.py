@@ -1,7 +1,7 @@
 import json
 import pathlib
 import urllib.request
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from typing import Mapping
 
 from nhlsuomi.NHL import utils
@@ -25,8 +25,8 @@ def _fetch_url_as_dict(url: str, *, dumpfile: str = '') -> Mapping:
         return obj
 
 
-def fetch_games(date: datetime.date, *, dumpfile: str = '') -> Mapping:
-    date_str = utils.format_date(date)
+def fetch_games(d: date, *, dumpfile: str = '') -> Mapping:
+    date_str = utils.format_date(d)
     url = f'{BASE_URL}/schedule?expand=schedule.teams&date={date_str}'
     return _fetch_url_as_dict(url, dumpfile=dumpfile)
 

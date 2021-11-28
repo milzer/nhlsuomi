@@ -1,16 +1,16 @@
-from datetime import datetime
+from datetime import date, datetime
 from itertools import chain
 from operator import itemgetter
-from typing import Iterable, List, Mapping, Tuple
+from typing import Iterable, List, Mapping, Sequence, Tuple
 
 from nhlsuomi.NHL import utils
 from nhlsuomi.NHL.API import fetch_boxscore
 from nhlsuomi.NHL.utils import dt_localizer, pluck
 
 
-def parse_games(obj: Mapping, date: datetime.date) -> Iterable[Mapping]:
+def parse_games(obj: Mapping, d: date) -> Sequence[Mapping]:
     total_games = obj.get('totalGames', 0)
-    date_str = utils.format_date(date)
+    date_str = utils.format_date(d)
 
     if total_games == 0:
         return []
@@ -104,10 +104,10 @@ def filter_players(players: Mapping,
         }
 
 
-def parse_players(games: List[Mapping],
-                  nationalities: List[str],
+def parse_players(games: Sequence[Mapping],
+                  nationalities: Sequence[str],
                   min_goals: int,
-                  min_points: int) -> Iterable[Mapping]:
+                  min_points: int) -> Tuple[Sequence, Sequence]:
     def _extract(boxscore, team):
         return list(
             filter_players(
@@ -131,7 +131,7 @@ def parse_players(games: List[Mapping],
             key=itemgetter('value'),
             reverse=True
         )
-        status_value = game.get('status') * 1000
+        status_value = game.get('status', 0) * 1000
         value = sum((p.get('value', 0) for p in players)) + status_value
 
         hilight_players += list(

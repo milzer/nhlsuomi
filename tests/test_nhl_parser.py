@@ -1,6 +1,7 @@
 import json
 import pathlib
 import unittest
+from datetime import date
 
 from nhlsuomi.NHL import parser
 
@@ -14,7 +15,7 @@ class Test_nhl_parser(unittest.TestCase):
     def test_parse_games(self):
         self.assertIsNotNone(self.games)
 
-        games = parser.parse_games(self.games, '2019-11-22')
+        games = parser.parse_games(self.games, date(2019, 11, 22))
 
         expected_games = [
             {'status': 1, 'id': 2019020346, 'type': 'R', 'home': {'team': 'PIT', 'score': 4}, 'away': {'team': 'NJD', 'score': 1}},
@@ -27,7 +28,7 @@ class Test_nhl_parser(unittest.TestCase):
     def test_parse_players(self):
         self.assertIsNotNone(self.games)
 
-        games = parser.parse_games(self.games, '2019-11-22')
+        games = parser.parse_games(self.games, date(2019, 11, 22))
 
         players, hilight_players = parser.parse_players(games, ['FIN'], 9, 9)
         expected_players = [

@@ -65,11 +65,11 @@ if __name__ == "__main__":
     schedule_config = config.get('schedule')
     if schedule_config:
         days = schedule_config['days']
-        schedule = API.fetch_upcoming_schedule(days)
+        raw_schedule = API.fetch_upcoming_schedule(days)
         del schedule_config['days']
-        schedule = parser.parse_schedule(schedule, **schedule_config)
+        schedule = list(parser.parse_schedule(raw_schedule, **schedule_config))
     else:
-        schedule = None
+        schedule = []
 
     template_path = pathlib.Path(config.get('template'))
     template = Template(template_path.read_text())

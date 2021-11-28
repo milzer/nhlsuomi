@@ -1,7 +1,7 @@
 import re
 from collections import OrderedDict
 from datetime import datetime, timedelta
-from typing import Iterable, List, Mapping, Tuple
+from typing import Callable, Iterable, List, Mapping, Tuple
 
 import praw
 from more_itertools import unique_everseen
@@ -38,7 +38,7 @@ def parse_hilights_recaps(submissions: Iterable[dict],
                           keywords: Iterable[str],
                           hilights_age_limit: int,
                           *,
-                          _now: callable = datetime.now) -> Tuple[List, Mapping]:
+                          _now: Callable = datetime.now) -> Tuple[List, Mapping]:
     date_limit = _now() - timedelta(hours=hilights_age_limit)
     hilights = []
     recaps = OrderedDict()
