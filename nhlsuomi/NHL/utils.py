@@ -23,3 +23,7 @@ def dt_localizer(tz: str) -> Callable[[datetime], datetime]:
         return dt + timezone.utcoffset(dt)
 
     return fun
+
+
+def format_date(date: datetime.date) -> str:
+    return date.strftime('%Y-%m-%d')

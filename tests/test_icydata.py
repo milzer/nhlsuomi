@@ -1,8 +1,8 @@
 import json
 import pathlib
 import unittest
-from datetime import datetime
 from collections import OrderedDict
+from datetime import datetime
 
 from nhlsuomi.reddit import icydata
 

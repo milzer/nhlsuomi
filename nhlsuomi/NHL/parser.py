@@ -3,21 +3,23 @@ from itertools import chain
 from operator import itemgetter
 from typing import Iterable, List, Mapping, Tuple
 
+from nhlsuomi.NHL import utils
 from nhlsuomi.NHL.API import fetch_boxscore
 from nhlsuomi.NHL.utils import dt_localizer, pluck
 
 
-def parse_games(obj: Mapping, timestamp: str) -> Iterable[Mapping]:
+def parse_games(obj: Mapping, date: datetime.date) -> Iterable[Mapping]:
     total_games = obj.get('totalGames', 0)
+    date_str = utils.format_date(date)
 
     if total_games == 0:
         return []
 
     games = chain.from_iterable((
-        date.get('games')
-        for date
+        gamedate.get('games')
+        for gamedate
         in obj.get('dates', [])
-        if date.get('date') == timestamp
+        if gamedate.get('date') == date_str
     ))
 
     def status(game):

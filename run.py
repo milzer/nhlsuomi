@@ -21,7 +21,7 @@ DEFAULT_MIN_POINTS = 9
 if __name__ == "__main__":
     config = json.loads(args.config.read())
 
-    date = (datetime.date.today() - datetime.timedelta(1)).strftime('%Y-%m-%d')
+    date = (datetime.date.today() - datetime.timedelta(1))
 
     dumpfile = 'games-raw.json' if args.test_dump else ''
     games = API.fetch_games(date, dumpfile=dumpfile)
