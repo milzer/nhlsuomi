@@ -1,3 +1,4 @@
+import logging
 from datetime import date, datetime
 from itertools import chain
 from operator import itemgetter
@@ -5,10 +6,11 @@ from typing import Iterable, List, Mapping, Sequence, Tuple
 
 from nhlsuomi.NHL import utils
 from nhlsuomi.NHL.API import fetch_boxscore
+from nhlsuomi.NHL.data import Game, GameStatus
 from nhlsuomi.NHL.utils import dt_localizer, pluck
 
 
-def parse_games(obj: Mapping, d: date) -> Sequence[Mapping]:
+def parse_games(obj: Mapping, d: date) -> Iterable[Mapping]:
     total_games = obj.get('totalGames', 0)
     date_str = utils.format_date(d)
 
@@ -23,35 +25,35 @@ def parse_games(obj: Mapping, d: date) -> Sequence[Mapping]:
         )
     )
 
-    def status(game):
-        state = pluck(game, 'status.abstractGameState')
-        if state == 'Live':
-            return 2
-        elif state == 'Final':
-            return 1
-        else:
-            return 0
+    for gamedata in games:
+        try:
+            game = Game.from_dict(gamedata)
 
-    return [
-        {
-            'status': status(game),
-            'id': game['gamePk'],
-            'type': game['gameType'],
-            'home': {
-                'team': pluck(game, 'teams.home.team.abbreviation'),
-                'score': pluck(game, 'teams.home.score')
-            },
-            'away': {
-                'team': pluck(game, 'teams.away.team.abbreviation'),
-                'score': pluck(game, 'teams.away.score')
-            }
-        }
-        for game in games
-        if (
-            'gamePk' in game
-            and pluck(game, 'status.detailedState') != 'Postponed'
-        )
-    ]
+            if game.status != GameStatus.POSTPONED:
+                # TODO: return dict until all dataclasses are done
+
+                if game.status == GameStatus.IN_PROGRESS:
+                    status = 2
+                elif game.status == GameStatus.FINAL:
+                    status = 1
+                else:
+                    status = 0
+
+                yield {
+                    'status': status,
+                    'id': game.id,
+                    'type': game.type.value,
+                    'home': {
+                        'team': game.home_team,
+                        'score': game.home_score
+                    },
+                    'away': {
+                        'team': game.away_team,
+                        'score': game.away_score
+                    }
+                }
+        except Exception:
+            logging.exception(None)
 
 
 def filter_players(players: Mapping,
