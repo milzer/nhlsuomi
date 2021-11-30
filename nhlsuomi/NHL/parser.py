@@ -38,12 +38,12 @@ def parse_games(obj: Mapping, d: date) -> Sequence[Mapping]:
             'id': game['gamePk'],
             'type': game['gameType'],
             'home': {
-                'team': pluck(game, 'teams.home.team.abbreviation', '???'),
-                'score': pluck(game, 'teams.home.score', 0)
+                'team': pluck(game, 'teams.home.team.abbreviation'),
+                'score': pluck(game, 'teams.home.score')
             },
             'away': {
-                'team': pluck(game, 'teams.away.team.abbreviation', '???'),
-                'score': pluck(game, 'teams.away.score', 0)
+                'team': pluck(game, 'teams.away.team.abbreviation'),
+                'score': pluck(game, 'teams.away.score')
             }
         }
         for game in games

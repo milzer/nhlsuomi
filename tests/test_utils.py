@@ -11,7 +11,9 @@ class Test_pluck(unittest.TestCase):
         }
         self.assertEqual(pluck(d, ('a')), 1)
         self.assertEqual(pluck(d, ('b')), 2)
-        self.assertEqual(pluck(d, ('c')), None)
+        self.assertEqual(pluck(d, ('c'), None), None)
+        with self.assertRaises(LookupError):
+            self.assertEqual(pluck(d, ('c')), None)
 
     def test_deep(self):
         d = {
@@ -27,6 +29,7 @@ class Test_pluck(unittest.TestCase):
         }
 
         self.assertEqual(pluck(d, ('a.b.c.d.e')), 1)
-        self.assertEqual(pluck(d, ('a.b.c.d.e.f')), None)
+        with self.assertRaises(LookupError):
+            self.assertEqual(pluck(d, ('a.b.c.d.e.f')), None)
         self.assertEqual(pluck(d, ('a.b.c.d')), {'e': 1})
-        self.assertEqual(pluck(d, ('a.b.d.d.e')), None)
+        self.assertEqual(pluck(d, ('a.b.d.d.e'), 666), 666)
