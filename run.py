@@ -5,6 +5,7 @@ import pathlib
 
 from jinja2 import Template
 
+from nhlsuomi.logging import set_loglevel
 from nhlsuomi.NHL import API, parser
 from nhlsuomi.reddit import icydata
 
@@ -29,6 +30,8 @@ DEFAULT_MIN_POINTS = 9
 
 if __name__ == "__main__":
     config = json.loads(args.config.read())
+
+    set_loglevel(config.get('loglevel'))
 
     date = datetime.date.today() - datetime.timedelta(1)
 
