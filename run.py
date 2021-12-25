@@ -1,36 +1,15 @@
-import argparse
 import datetime
 import json
 import pathlib
 
 from jinja2 import Template
 
+from nhlsuomi.config import args, config
 from nhlsuomi.logging import set_loglevel
 from nhlsuomi.NHL import API, parser
 from nhlsuomi.reddit import icydata
 
-argparser = argparse.ArgumentParser()
-argparser.add_argument(
-    '-c',
-    '--config',
-    type=argparse.FileType('r'),
-    help='Config JSON',
-    required=True
-)
-argparser.add_argument(
-    '--test-dump',
-    help='Dump test data',
-    action='store_true'
-)
-args = argparser.parse_args()
-
-DEFAULT_HILIGHTS_AGE_LIMIT = 18
-DEFAULT_MIN_GOALS = 9
-DEFAULT_MIN_POINTS = 9
-
 if __name__ == "__main__":
-    config = json.loads(args.config.read())
-
     set_loglevel(config.get('loglevel'))
 
     date = datetime.date.today() - datetime.timedelta(1)
@@ -56,13 +35,13 @@ if __name__ == "__main__":
     results, hilight_players = parser.parse_players(
         parsed_games,
         config.get('nationalities', []),
-        config.get('min_goals', DEFAULT_MIN_GOALS),
-        config.get('min_points', DEFAULT_MIN_POINTS),
+        config.get('min_goals', 9),
+        config.get('min_points', 9),
     )
     hilights, recaps = icydata.parse_hilights_recaps(
         icydata_submissions,
         config.get('hilights') + hilight_players,
-        config.get('hilights_age_limit', DEFAULT_HILIGHTS_AGE_LIMIT)
+        config.get('hilights_age_limit', 18)
     )
 
     schedule_config = config.get('schedule')

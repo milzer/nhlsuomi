@@ -1,0 +1,23 @@
+loglevel: INFO
+reddit:
+    username: milzer
+    password: Ya2mOy654YEl9Mc
+    client_id: YHNGASWz-C5rFQ
+    client_secret: hdvF2BWIdEFnKOV8ZQ0JY0RjS6s
+nationalities: [FIN, SWE]
+min_points: 5
+min_goals: 3
+template: template.html
+output": nhl.html
+hilights_age_limit: 18
+hilights: [
+    shootout,
+    spectacular,
+    slap,
+    blast
+]
+schedule:
+    days: 21
+    timezone: Europe/Helsinki
+    dt_format: '%d.%m. %H:%M'
+    hours: [6, 24]
