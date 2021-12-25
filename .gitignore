@@ -6,6 +6,6 @@ __pycache__/
 .vscode/
 .env/
 .winvenv/
-config.json
+config.yml
 nhl.html
 games-raw.json

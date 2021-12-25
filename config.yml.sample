@@ -1,16 +1,16 @@
 loglevel: INFO
 reddit:
-    username: milzer
-    password: Ya2mOy654YEl9Mc
-    client_id: YHNGASWz-C5rFQ
-    client_secret: hdvF2BWIdEFnKOV8ZQ0JY0RjS6s
+    username:
+    password:
+    client_id:
+    client_secret:
 nationalities: [FIN, SWE]
 min_points: 5
 min_goals: 3
 template: template.html
-output": nhl.html
+output: nhl.html
 hilights_age_limit: 18
-hilights: [
+hilight_keywords: [
     shootout,
     spectacular,
     slap,
