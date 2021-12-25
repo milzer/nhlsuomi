@@ -5,6 +5,7 @@ __pycache__/
 .coverage
 .vscode/
 .env/
+.winvenv/
 config.json
 nhl.html
 games-raw.json
