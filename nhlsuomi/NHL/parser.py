@@ -10,8 +10,8 @@ from nhlsuomi.NHL.data import Game, GameStatus
 from nhlsuomi.NHL.utils import dt_localizer, pluck
 
 
-def parse_games(obj: Mapping, d: date) -> Iterable[Mapping]:
-    total_games = obj.get('totalGames', 0)
+def parse_games(games_response: Mapping, d: date) -> Iterable[Mapping]:
+    total_games = games_response.get('totalGames', 0)
     date_str = utils.format_date(d)
 
     if total_games == 0:
@@ -20,7 +20,7 @@ def parse_games(obj: Mapping, d: date) -> Iterable[Mapping]:
     games = chain.from_iterable(
         (
             gamedate.get('games')
-            for gamedate in obj.get('dates', [])
+            for gamedate in games_response.get('dates', [])
             if gamedate.get('date') == date_str
         )
     )
