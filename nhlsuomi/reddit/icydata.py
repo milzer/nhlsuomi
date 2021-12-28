@@ -14,16 +14,12 @@ DEFAULT_LIMIT = 300
 
 def fetch_submissions(client_id: str,
                       client_secret: str,
-                      username: str,
-                      password: str,
                       *,
                       limit: int = DEFAULT_LIMIT):
     reddit = praw.Reddit(
-        user_agent=USER_AGENT,
         client_id=client_id,
         client_secret=client_secret,
-        username=username,
-        password=password
+        user_agent=USER_AGENT
     )
 
     for submission in reddit.subreddit('icydata').new(limit=limit):

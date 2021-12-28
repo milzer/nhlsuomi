@@ -1,14 +1,16 @@
 loglevel: INFO
-reddit:
-    username:
-    password:
-    client_id:
-    client_secret:
+
 nationalities: [FIN, SWE]
 min_points: 5
 min_goals: 3
 template: template.html
 output: nhl.html
+
+reddit:
+    # reddit app id is required for hilight videos
+    client_id:
+    client_secret:
+# max reddit post age in hours, 0 = hilights disabled
 hilights_age_limit: 18
 hilight_keywords: [
     shootout,
@@ -16,8 +18,11 @@ hilight_keywords: [
     slap,
     blast
 ]
+
 schedule:
+    # days 0 = schedule disabled
     days: 21
     timezone: Europe/Helsinki
     dt_format: '%d.%m. %H:%M'
-    hours: [6, 24]
+    # game starting hours in local time [from, to]
+    hours: [6, 23]
