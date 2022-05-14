@@ -29,7 +29,9 @@ class GameStatus(IntEnum):
 
 class GameType(Enum):
     REGULAR = 'R'
+    PLAYOFF = 'P'
     PRESEASON = 'PR'
+    ALLSTAR = 'A'
 
 
 @dataclass
