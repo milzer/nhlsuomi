@@ -2,7 +2,7 @@ import logging
 from datetime import date, datetime
 from itertools import chain
 from operator import itemgetter
-from typing import Iterable, List, Mapping, Sequence, Tuple
+from typing import Iterable, List, Mapping, Tuple
 
 from nhlsuomi.NHL import utils
 from nhlsuomi.NHL.API import fetch_boxscore
@@ -106,10 +106,10 @@ def filter_players(players: Mapping,
         }
 
 
-def parse_players(games: Sequence[Mapping],
-                  nationalities: Sequence[str],
+def parse_players(games: Iterable[Mapping],
+                  nationalities: List[str],
                   min_goals: int,
-                  min_points: int) -> Tuple[Sequence, Sequence]:
+                  min_points: int) -> Tuple[List, List]:
     def _extract(boxscore, team):
         return list(
             filter_players(

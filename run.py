@@ -1,6 +1,5 @@
 import argparse
 import datetime
-import json
 import pathlib
 from dataclasses import asdict
 
@@ -42,43 +41,31 @@ if __name__ == "__main__":
 
     date = datetime.date.today() - datetime.timedelta(1)
 
-    dumpfile = 'games-raw.json' if args.test_dump else ''
-    games = API.fetch_games(date, dumpfile=dumpfile)
-
-    icydata_submissions = icydata.fetch_submissions(
-        config.reddit.client_id,
-        config.reddit.client_secret
-    )
-
-    if args.test_dump:
-        for data, filename in (
-            (games, 'games.json'),
-            (list(icydata_submissions), 'icydata.json')
-        ):
-
-            path = pathlib.Path.cwd() / 'tests' / filename
-            print(f'Dumping {path}...', end='')
-            path.write_text(json.dumps(data, indent=4))
-            print('ok')
-
-        exit(0)
-
+    games = API.fetch_games(date)
     parsed_games = parser.parse_games(games, date)
+
     results, hilight_players = parser.parse_players(
         parsed_games,
         config.nationalities,
         config.min_goals,
         config.min_points
     )
-    hilights, recaps = icydata.parse_hilights_recaps(
-        icydata_submissions,
-        config.hilight_keywords + hilight_players,
-        config.hilights_age_limit
-    )
 
-    schedule_config = asdict(config.schedule)
+    if config.hilights_enabled:
+        icydata_submissions = icydata.fetch_submissions(
+            config.reddit.client_id,
+            config.reddit.client_secret
+        )
 
-    if schedule_config:
+        hilights, recaps = icydata.parse_hilights_recaps(
+            icydata_submissions,
+            config.hilight_keywords + hilight_players,
+            config.hilights_age_limit
+        )
+
+    if config.schedule_enabled:
+        schedule_config = asdict(config.schedule)
+
         days = schedule_config['days']
         raw_schedule = API.fetch_upcoming_schedule(days)
         del schedule_config['days']
