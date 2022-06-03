@@ -17,11 +17,11 @@ class GameStatus(IntEnum):
     def parse_statuscode(statuscode: str) -> GameStatus:
         if statuscode in {'1', '2', '8'}:
             return GameStatus.SCHEDULED
-        elif statuscode in {'3', '4', '5', '6'}:
+        elif statuscode in {'3', '4'}:
             return GameStatus.IN_PROGRESS
         elif statuscode == '9':
             return GameStatus.POSTPONED
-        elif statuscode == '7':
+        elif statuscode in {'5', '6', '7'}:
             return GameStatus.FINAL
 
         raise ValueError(f'Invalid game statuscode: {statuscode}')
