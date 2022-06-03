@@ -36,6 +36,10 @@ python run.py -c config.json
 pytest
 ```
 
+## NHL API
+
+https://gitlab.com/dword4/nhlapi
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
