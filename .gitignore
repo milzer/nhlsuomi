@@ -8,4 +8,3 @@ __pycache__/
 .winvenv/
 config.yml
 nhl.html
-games-raw.json

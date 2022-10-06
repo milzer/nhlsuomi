@@ -1,41 +1,30 @@
 import logging
 import sys
-from typing import Optional, Union
+
+
+class Formatter(logging.Formatter):
+    def __init__(self):
+        super().__init__('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    def format(self, record: logging.LogRecord) -> str:
+        if record.exc_info:
+            record.levelname = 'EXCEPTION'
+
+        return super().format(record)
+
+
+handler = logging.StreamHandler(sys.stdout)
+handler.setFormatter(Formatter())
 
 logger = logging.getLogger('nhlsuomi')
-logger.setLevel(logging.INFO)
-
-ch = logging.StreamHandler(sys.stdout)
-ch.setLevel(logging.INFO)
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-
-logger.addHandler(ch)
+logger.addHandler(handler)
 
 
-def set_loglevel(level: Optional[Union[int,str]]):
-    if level is None:
-        return
-    elif str(level).isdigit():
-        int_level = int(level)
+def _excepthook(exc_type, exc_value, exc_traceback = None):
+    if issubclass(exc_type, Exception):
+        logger.error('Uncaught exception', exc_info=(exc_type, exc_value, exc_traceback))
     else:
-        try:
-            int_level = int(getattr(logging, str(level)))
-        except Exception:
-            logger.warning(f'Ignoring invalid loglevel: {level}')
-            return
-
-    logger.info(f'Setting loglevel: {int_level}')
-    logger.setLevel(int_level)
-    ch.setLevel(int_level)
-
-
-def _excepthook(exc_type, exc_value, exc_traceback):
-    if not issubclass(exc_type, Exception):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
-        return
 
-    logger.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
 
 sys.excepthook = _excepthook

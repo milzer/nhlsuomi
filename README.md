@@ -4,9 +4,7 @@ Generate a page of NHL scores, hilight videos and selected player stats based on
 
 ### Requirements
 
-* Python 3.7
-* jinja2
-* praw
+* Python 3.8
 
 ### Installing
 
@@ -22,18 +20,6 @@ Install required packages:
 
 ```
 pip install -r requirements.txt
-```
-
-Create config JSON (see [example.config.json](example.config.json)) and run the script:
-
-```
-python run.py -c config.json
-```
-
-## Running the tests
-
-```
-pytest
 ```
 
 ## NHL API
