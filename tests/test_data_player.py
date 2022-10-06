@@ -15,7 +15,7 @@ class TestPlayerData(unittest.TestCase):
     def test_lt(self):
         p1 = Player('1g', 1, 0, 0, 0, 0, 0, 0)
         p2 = Player('1a', 0, 1, 0, 0, 0, 0, 0)
-        self.assertTrue(p1 > p2)
+        self.assertLess(p2, p1)
 
     def test_ordering(self):
         players = [
