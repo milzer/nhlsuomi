@@ -25,9 +25,6 @@ game4 = Game('COL',  5, 'TBL',  0, 'regular', '4', None, [
 
 
 class TestGameData(unittest.TestCase):
-    def test_eq(self):
-        self.assertTrue(game3 == game4)
-
     def test_lt(self):
         self.assertLess(game1, game2)
         self.assertLess(game1, game3)

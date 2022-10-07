@@ -4,14 +4,6 @@ from nhlsuomi.data import Player
 
 
 class TestPlayerData(unittest.TestCase):
-    def test_eq(self):
-        p1 = Player('a', 1, 1, 25, -1, 1, 1, 2)
-        p2 = Player('b', 1, 1, 25, -1, 1, 1, 2)
-        p3 = Player('a', 2,0, 10, -1, 1, 1, 2)
-        self.assertTrue(p1 == p2)
-        self.assertFalse(p1 == p3)
-        self.assertFalse(p2 == p3)
-
     def test_lt(self):
         p1 = Player('1g', 1, 0, 0, 0, 0, 0, 0)
         p2 = Player('1a', 0, 1, 0, 0, 0, 0, 0)

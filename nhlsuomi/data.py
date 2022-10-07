@@ -4,7 +4,7 @@ from typing import Any, List, Optional, Tuple
 
 
 @total_ordering
-@dataclass(eq=False)
+@dataclass(eq=True)
 class Player:
     name: str
     g: int
@@ -32,12 +32,6 @@ class Player:
             self.pim
         )
 
-    def __eq__(self, other: Any) -> bool:
-        if isinstance(other, Player):
-            return self._value == other._value
-        else:
-            return NotImplemented
-
     def __lt__(self, other) -> bool:
         if isinstance(other, Player):
             return self._value < other._value
@@ -59,7 +53,7 @@ class Player:
 
 
 @total_ordering
-@dataclass(eq=False)
+@dataclass(eq=True)
 class Game:
     home_team: str
     home_score: int
@@ -69,12 +63,6 @@ class Game:
     gamecenter_id: str
     recap_url: Optional[str] = None
     players: List[Player] = field(default_factory=list)
-
-    def __eq__(self, other: Any) -> bool:
-        if isinstance(other, Game):
-            return self._value == other._value
-        else:
-            return NotImplemented
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Game):
