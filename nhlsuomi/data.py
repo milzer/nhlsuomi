@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from functools import total_ordering
-from typing import Any, List, Optional, Tuple
+from typing import List, Optional, Tuple
 
 
 @total_ordering
@@ -59,10 +59,11 @@ class Game:
     home_score: int
     away_team: str
     away_score: int
-    type: str
-    gamecenter_id: str
-    recap_url: Optional[str] = None
+    final: bool
+    gamecenter_id: int
     players: List[Player] = field(default_factory=list)
+    type: Optional[str] = None  # if something else than regular/playoff
+    recap_url: Optional[str] = None
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Game):
@@ -71,15 +72,16 @@ class Game:
             return NotImplemented
 
     @property
-    def _value(self) -> Tuple[int, int, int]:
+    def _value(self) -> Tuple[bool, int, int, int]:
         points = [
-            (p.g, p.a)
+            p.g + p.a
             for p in self.players
             if (p.g + p.a) > 0
         ]
 
         return (
-            len(points),  # number of scorers
-            sum(g + a for g, a in points),  # total points
+            self.final,
+            len(points),
+            sum(points),
             len(self.players)
         )
