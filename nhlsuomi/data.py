@@ -6,7 +6,8 @@ from typing import List, Optional, Tuple
 @total_ordering
 @dataclass(eq=True)
 class Player:
-    name: str
+    first_name: str
+    last_name: str
     g: int
     a: int
     toi: int
@@ -23,7 +24,8 @@ class Player:
         toi = f'{toi_m:02d}:{toi_s:02d}'
 
         return (
-            self.name,
+            self.first_name,
+            self.last_name,
             points,
             toi,
             self.plusminus,
