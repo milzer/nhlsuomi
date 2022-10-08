@@ -51,6 +51,10 @@ class Player:
             self.pim
         )
 
+    @property
+    def binoculars(self) -> bool:
+        return (self.g + self.a) == 0
+
 
 @total_ordering
 @dataclass(eq=True)
