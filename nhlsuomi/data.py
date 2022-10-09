@@ -3,6 +3,11 @@ from functools import total_ordering
 from typing import List, Optional, Tuple
 
 
+def format_toi(seconds: int) -> str:
+    m, s = divmod(seconds, 60)
+    return f'{m:02d}:{s:02d}'
+
+
 @total_ordering
 @dataclass(eq=True)
 class Player:
@@ -17,17 +22,12 @@ class Player:
     pim: int
 
     @property
-    def columns(self):
-        points = f'{self.g}+{self.a}'
-
-        toi_m, toi_s = divmod(self.toi, 60)
-        toi = f'{toi_m:02d}:{toi_s:02d}'
-
+    def columns(self) -> Tuple[str, str, str, str, int, int, int, int]:
         return (
             self.first_name,
             self.last_name,
-            points,
-            toi,
+            f'{self.g}+{self.a}',
+            format_toi(self.toi),
             self.plusminus,
             self.shots,
             self.hits,
@@ -36,12 +36,11 @@ class Player:
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Player):
-            return self._value < other._value
+            return self.value() < other.value()
         else:
             return NotImplemented
 
-    @property
-    def _value(self) -> Tuple:
+    def value(self) -> Tuple[int, int, int, int, int, int, int, int]:
         return (
             self.g + self.a,
             self.g,
@@ -56,6 +55,40 @@ class Player:
     @property
     def binoculars(self) -> bool:
         return (self.g + self.a) == 0
+
+
+@total_ordering
+@dataclass(eq=True)
+class Goalie:
+    first_name: str
+    last_name: str
+    spct: float
+    toi: int
+    shots: int
+
+    @property
+    def columns(self) -> Tuple[str, str, str, str, int]:
+        return (
+            self.first_name,
+            self.last_name,
+            f'{self.spct:.1%}',
+            format_toi(self.toi),
+            self.shots
+        )
+
+    def __lt__(self, other) -> bool:
+        if isinstance(other, Goalie):
+            return self.value() < other.value()
+        else:
+            return NotImplemented
+
+    def value(self) -> Tuple[bool, int, int]:
+        return (
+            self.toi > 40 * 60,
+            int(self.spct * 1000),
+            self.shots
+        )
+
 
 
 @total_ordering
