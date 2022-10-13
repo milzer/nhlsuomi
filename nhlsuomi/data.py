@@ -90,7 +90,6 @@ class Goalie:
         )
 
 
-
 @total_ordering
 @dataclass(eq=True)
 class Game:
@@ -101,17 +100,17 @@ class Game:
     final: bool
     gamecenter_id: int
     players: List[Player] = field(default_factory=list)
+    goalies: List[Goalie] = field(default_factory=list)
     type: Optional[str] = None  # if something else than regular/playoff
     recap_url: Optional[str] = None
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Game):
-            return self._value < other._value
+            return self.value() < other.value()
         else:
             return NotImplemented
 
-    @property
-    def _value(self) -> Tuple[bool, int, int, int]:
+    def value(self) -> Tuple[bool, int, int, int]:
         points = [
             p.g + p.a
             for p in self.players
@@ -122,5 +121,5 @@ class Game:
             self.final,
             len(points),
             sum(points),
-            len(self.players)
+            len(self.players) + len(self.goalies)
         )
