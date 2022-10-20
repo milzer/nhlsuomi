@@ -5,8 +5,7 @@ from typing import Mapping, Optional
 from urllib.parse import urlencode
 
 
-def _build_url(path: str, **query_args):
-    return f'https://statsapi.web.nhl.com/api/v1{path}?{urlencode(query_args)}'
+BASE_URL = 'https://statsapi.web.nhl.com/api/v1'
 
 
 def _fetch_json(url: str) -> Mapping:
@@ -16,28 +15,23 @@ def _fetch_json(url: str) -> Mapping:
         return json.loads(data.decode(encoding))
 
 
-def schedule(date: Optional[date] = None, days_more: int = 0) -> Mapping:
-    # NOTE: maybe support these game types as well when the time comes WCOH_PRELIM, WCOH_FINAL
-    query_args = {
-        'gameType': 'R,P,A'
+def schedule(date: Optional[date] = None, days: int = 1) -> Mapping:
+    args = {
+        'gameType': ','.join(('R', 'P', 'A', 'WCOH_PRELIM', 'WCOH_FINAL')),
+        'expand' : ','.join(('schedule.teams', 'schedule.game.content.highlights.all'))
     }
 
     if date:
-        if days_more > 0:
-            query_args['startDate'] = date.isoformat()
-            query_args['endDate'] = (date + timedelta(days=days_more)).isoformat()
-        else:
-            query_args['date'] = date.isoformat()
+        if days > 1:
+            args['startDate'] = date.isoformat()
 
-    url = _build_url('/schedule', **query_args)
-    return _fetch_json(url)
+            date += timedelta(days-1)
+            args['endDate'] = date.isoformat()
+        else:
+            args['date'] = date.isoformat()
+
+    return _fetch_json(f'{BASE_URL}/schedule?{urlencode(args)}')
 
 
 def boxscore(gameid: int) -> Mapping:
-    url = _build_url(f'/game/{gameid}/boxscore')
-    return _fetch_json(url)
-
-
-def teams() -> Mapping:
-    url = _build_url('/teams')
-    return _fetch_json(url)
+    return _fetch_json(f'{BASE_URL}/game/{gameid}/boxscore')
