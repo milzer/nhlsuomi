@@ -99,10 +99,9 @@ class Game:
     away_score: int
     final: bool
     gamecenter_id: int
+    recap_url: Optional[str] = None
     players: List[Player] = field(default_factory=list)
     goalies: List[Goalie] = field(default_factory=list)
-    type: Optional[str] = None  # if something else than regular/playoff
-    recap_url: Optional[str] = None
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Game):
