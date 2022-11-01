@@ -4,7 +4,6 @@ from datetime import date, timedelta
 from typing import Mapping, Optional
 from urllib.parse import urlencode
 
-
 BASE_URL = 'https://statsapi.web.nhl.com/api/v1'
 
 
@@ -15,10 +14,14 @@ def _fetch_json(url: str) -> Mapping:
         return json.loads(data.decode(encoding))
 
 
-def schedule(date: Optional[date] = None, days: int = 1) -> Mapping:
+def get_schedule(date: Optional[date] = None, days: int = 1) -> Mapping:
     args = {
         'gameType': ','.join(('R', 'P', 'A', 'WCOH_PRELIM', 'WCOH_FINAL')),
-        'expand' : ','.join(('schedule.teams', 'schedule.game.content.highlights.all'))
+        'expand' : ','.join((
+            'schedule.teams',
+            'schedule.game.content.highlights.all',
+            'schedule.game.content.media.epg'
+        ))
     }
 
     if date:
@@ -33,5 +36,5 @@ def schedule(date: Optional[date] = None, days: int = 1) -> Mapping:
     return _fetch_json(f'{BASE_URL}/schedule?{urlencode(args)}')
 
 
-def boxscore(gameid: int) -> Mapping:
+def get_boxscore(gameid: int) -> Mapping:
     return _fetch_json(f'{BASE_URL}/game/{gameid}/boxscore')
