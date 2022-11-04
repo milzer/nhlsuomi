@@ -1,10 +1,43 @@
-from typing import Iterable, Mapping, Optional
+from contextlib import suppress
+from typing import Iterable, List, Mapping, Optional, Set, Tuple
 
 from nhlsuomi.data import Game
 from nhlsuomi.logging import logger
 
 
-def parse_recap_url(game: Mapping) -> Optional[str]:
+def _parse_schedule_games(schedule: Mapping) -> Iterable[Tuple[Mapping, str]]:
+    for date in schedule['dates']:
+        for game in date['games']:
+            if game['status']['detailedState'] == 'Postponed':
+                continue
+
+            state = game['status']['abstractGameState']
+
+            if state not in {'Preview', 'Live', 'Final'}:
+                logger.warning(f'Invalid abstractGameState: {state}')
+                continue
+
+            yield game, state
+
+
+def _parse_best_playback_url(playbacks: List[Mapping]) -> Optional[str]:
+    # take the last item with name starting FLASH_ for now
+    # assuming it's the best quality
+    try:
+        with suppress(StopIteration):
+            best_playback = next(filter(
+                lambda x: x['name'].startswith('FLASH_'),
+                reversed(playbacks)
+            ))
+            return best_playback['url']
+
+    except Exception:
+        logger.exception('Playback parsing failed')
+
+    return None
+
+
+def _parse_recap_url(game: Mapping) -> Optional[str]:
     epg = game['content']['media']['epg']
 
     try:
@@ -20,14 +53,7 @@ def parse_recap_url(game: Mapping) -> Optional[str]:
             recap['items']
         ))
 
-        # take the last item with name starting FLASH_ for now
-        # assuming it's the best quality
-        playback = next(filter(
-            lambda x: x['name'].startswith('FLASH_'),
-            reversed(item['playbacks'])
-        ))
-
-        return playback['url']
+        return _parse_best_playback_url(item['playbacks'])
 
     except Exception:
         logger.exception('Recap url parsing failed')
@@ -36,25 +62,64 @@ def parse_recap_url(game: Mapping) -> Optional[str]:
 
 
 def parse_schedule_games(schedule: Mapping) -> Iterable[Game]:
-    for date in schedule['dates']:
-        for game in date['games']:
-            if game['status']['detailedState'] == 'Postponed':
-                continue
+    for game, state in _parse_schedule_games(schedule):
+        recap_url = _parse_recap_url(game)
 
-            state = game['status']['abstractGameState']
+        yield Game(
+            game['teams']['home']['team']['abbreviation'],
+            game['teams']['home']['score'],
+            game['teams']['away']['team']['abbreviation'],
+            game['teams']['away']['score'],
+            state == 'Final',
+            game['gamePk'],
+            recap_url
+        )
 
-            if state not in {'Preview', 'Live', 'Final'}:
-                logger.warning(f'Invalid abstractGameState: {state}')
-                continue
 
-            recap_url = parse_recap_url(game)
+def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> Iterable[Tuple[str, str]]:
+    keywords = {
+        keyword.strip().casefold()
+        for keyword
+        in keywords
+    }
 
-            yield Game(
-                game['teams']['home']['team']['abbreviation'],
-                game['teams']['home']['score'],
-                game['teams']['away']['team']['abbreviation'],
-                game['teams']['away']['score'],
-                state == 'Final',
-                game['gamePk'],
-                recap_url
-            )
+    highlights = []
+
+    for game, state in _parse_schedule_games(schedule):
+        if state != 'Final':
+            continue
+
+        try:
+            items = game['content']['highlights']['gameCenter']['items']
+        except Exception:
+            logger.exception('Highlight items not found')
+            return []
+
+        for item in items:
+            try:
+                title = item['blurb'] or item['title']
+
+                if keywords:
+                    lowercase_title = title.casefold()
+
+                    for keyword in keywords:
+                        if keyword in lowercase_title:
+                            break
+                    else:
+                        # keyword not found so skip this highlight
+                        continue
+
+                id_ = int(item['id'])
+
+                if url := _parse_best_playback_url(item['playbacks']):
+                    highlights.append((id_, title, url))
+
+            except Exception:
+                logger.exception('Playback parsing failed')
+
+    # sort by id
+    yield from (
+        (title, url)
+        for (_, title, url)
+        in sorted(highlights)
+    )
