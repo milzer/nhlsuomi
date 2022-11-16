@@ -10,7 +10,7 @@ def format_toi(seconds: int) -> str:
 
 @total_ordering
 @dataclass(eq=True)
-class Player:
+class Skater:
     first_name: str
     last_name: str
     g: int
@@ -35,7 +35,7 @@ class Player:
         )
 
     def __lt__(self, other) -> bool:
-        if isinstance(other, Player):
+        if isinstance(other, Skater):
             return self.value() < other.value()
         else:
             return NotImplemented
@@ -100,7 +100,7 @@ class Game:
     final: bool
     gamecenter_id: int
     recap_url: Optional[str] = None
-    players: List[Player] = field(default_factory=list)
+    skaters: List[Skater] = field(default_factory=list)
     goalies: List[Goalie] = field(default_factory=list)
 
     def __lt__(self, other) -> bool:
@@ -111,14 +111,16 @@ class Game:
 
     def value(self) -> Tuple[bool, int, int, int]:
         points = [
-            p.g + p.a
-            for p in self.players
-            if (p.g + p.a) > 0
+            skater.g + skater.a
+            for skater in self.skaters
+            if (skater.g + skater.a) > 0
         ]
+
+        # TODO: goalie values?
 
         return (
             self.final,
             len(points),
             sum(points),
-            len(self.players) + len(self.goalies)
+            len(self.skaters) + len(self.goalies)
         )

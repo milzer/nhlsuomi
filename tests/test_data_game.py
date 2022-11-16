@@ -1,29 +1,29 @@
 import unittest
 
-from nhlsuomi.data import Game, Player
+from nhlsuomi.data import Game, Skater
 
 game1 = Game('COL',  5, 'TBL',  0, True, 1, None, [
-    Player('a', 'a', 0, 0, 0, 0, 0, 0, 0),
-    Player('b', 'b', 0, 0, 0, 0, 0, 0, 0),
-    Player('c', 'c', 0, 0, 0, 0, 0, 0, 0),
-    Player('d', 'd', 0, 0, 0, 0, 0, 0, 0)
+    Skater('a', 'a', 0, 0, 0, 0, 0, 0, 0),
+    Skater('b', 'b', 0, 0, 0, 0, 0, 0, 0),
+    Skater('c', 'c', 0, 0, 0, 0, 0, 0, 0),
+    Skater('d', 'd', 0, 0, 0, 0, 0, 0, 0)
 ])
 
 game2 = Game('COL',  5, 'TBL',  0, True, 2, None, [
-    Player('e', 'e', 1, 0, 0, 0, 0, 0, 0),
-    Player('f', 'f', 0, 1, 0, 0, 0, 0, 0),
-    Player('g', 'g', 0, 0, 0, 0, 0, 0, 0)
+    Skater('e', 'e', 1, 0, 0, 0, 0, 0, 0),
+    Skater('f', 'f', 0, 1, 0, 0, 0, 0, 0),
+    Skater('g', 'g', 0, 0, 0, 0, 0, 0, 0)
 ])
 
 game3 = Game('COL',  5, 'TBL',  0, True, 3, None, [
-    Player('h', 'h', 3, 0, 0, 0, 0, 0, 0)
+    Skater('h', 'h', 3, 0, 0, 0, 0, 0, 0)
 ])
 
 game4 = Game('COL',  5, 'TBL',  0, False, 4, None, [
-    Player('i', 'i', 1, 0, 0, 0, 0, 0, 0),
-    Player('j', 'j', 1, 0, 0, 0, 0, 0, 0),
-    Player('k', 'k', 1, 0, 0, 0, 0, 0, 0),
-    Player('l', 'l', 1, 0, 0, 0, 0, 0, 0),
+    Skater('i', 'i', 1, 0, 0, 0, 0, 0, 0),
+    Skater('j', 'j', 1, 0, 0, 0, 0, 0, 0),
+    Skater('k', 'k', 1, 0, 0, 0, 0, 0, 0),
+    Skater('l', 'l', 1, 0, 0, 0, 0, 0, 0),
 ])
 
 
