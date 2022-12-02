@@ -4,10 +4,13 @@ from datetime import date, timedelta
 from typing import Mapping, Optional
 from urllib.parse import urlencode
 
+from nhlsuomi.logging import logger
+
 BASE_URL = 'https://statsapi.web.nhl.com/api/v1'
 
 
 def _fetch_json(url: str) -> Mapping:
+    logger.info(f'Fetch {url}')
     with urllib.request.urlopen(url) as res:
         data = res.read()
         encoding = res.info().get_content_charset('utf-8')
