@@ -1,7 +1,7 @@
 from contextlib import suppress
 from typing import Iterable, List, Mapping, Optional, Set, Tuple
 
-from nhlsuomi.data import Game
+from nhlsuomi.data import Game, Goalie, Skater
 from nhlsuomi.logging import logger
 
 
@@ -123,3 +123,54 @@ def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> 
         for (_, title, url)
         in sorted(highlights)
     )
+
+
+def parse_boxscore_players(boxscore: Mapping, nationalities: Set[str] = set()) -> Iterable[Mapping]:
+    players = (
+        *boxscore['teams']['home']['players'].values(),
+        *boxscore['teams']['away']['players'].values()
+    )
+
+    if nationalities:
+        for player in players:
+            if player['person']['nationality'] in nationalities:
+                yield player
+    else:
+        yield from players
+
+
+def _parse_toi(toi: str) -> int:
+    mm, ss = toi.split(':')
+    return int(mm) * 60 + int(ss)
+
+
+def parse_players_skaters(players: Iterable[Mapping]) -> Iterable[Skater]:
+    for player in players:
+        with suppress(KeyError):
+            stats = player['stats']['skaterStats']
+
+            yield Skater(
+                player['person']['firstName'],
+                player['person']['lastName'],
+                stats['goals'],
+                stats['assists'],
+                _parse_toi(stats['timeOnIce']),
+                stats['plusMinus'],
+                stats['shots'],
+                stats['hits'],
+                stats['penaltyMinutes']
+            )
+
+
+def parse_players_goalies(players: Iterable[Mapping]) -> Iterable[Goalie]:
+    for player in players:
+        with suppress(KeyError):
+            stats = player['stats']['goalieStats']
+
+            yield Goalie(
+                player['person']['firstName'],
+                player['person']['lastName'],
+                stats['savePercentage'],
+                _parse_toi(stats['timeOnIce']),
+                stats['shots']
+            )

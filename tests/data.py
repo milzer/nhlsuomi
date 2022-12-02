@@ -10815,3 +10815,2894 @@ schedule = {
     }
   ]
 }
+
+
+boxscore = {
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved.",
+  "teams" : {
+    "away" : {
+      "team" : {
+        "id" : 21,
+        "name" : "Colorado Avalanche",
+        "link" : "/api/v1/teams/21"
+      },
+      "teamStats" : {
+        "teamSkaterStats" : {
+          "goals" : 6,
+          "pim" : 16,
+          "shots" : 34,
+          "powerPlayPercentage" : "50.0",
+          "powerPlayGoals" : 3.0,
+          "powerPlayOpportunities" : 6.0,
+          "faceOffWinPercentage" : "55.9",
+          "blocked" : 19,
+          "takeaways" : 5,
+          "giveaways" : 5,
+          "hits" : 10
+        }
+      },
+      "players" : {
+        "ID8480382" : {
+          "person" : {
+            "id" : 8480382,
+            "fullName" : "Alexandar Georgiev",
+            "link" : "/api/v1/people/8480382",
+            "firstName" : "Alexandar",
+            "lastName" : "Georgiev",
+            "primaryNumber" : "40",
+            "birthDate" : "1996-02-10",
+            "currentAge" : 26,
+            "birthCity" : "Ruse",
+            "birthCountry" : "BGR",
+            "nationality" : "RUS",
+            "height" : "6' 1\"",
+            "weight" : 178,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "G",
+              "name" : "Goalie",
+              "type" : "Goalie",
+              "abbreviation" : "G"
+            }
+          },
+          "jerseyNumber" : "40",
+          "position" : {
+            "code" : "G",
+            "name" : "Goalie",
+            "type" : "Goalie",
+            "abbreviation" : "G"
+          },
+          "stats" : {
+            "goalieStats" : {
+              "timeOnIce" : "60:00",
+              "assists" : 0,
+              "goals" : 0,
+              "pim" : 0,
+              "shots" : 28,
+              "saves" : 24,
+              "powerPlaySaves" : 7,
+              "shortHandedSaves" : 0,
+              "evenSaves" : 17,
+              "shortHandedShotsAgainst" : 0,
+              "evenShotsAgainst" : 19,
+              "powerPlayShotsAgainst" : 9,
+              "decision" : "W",
+              "savePercentage" : 85.71428571428571,
+              "powerPlaySavePercentage" : 77.77777777777779,
+              "evenStrengthSavePercentage" : 89.47368421052632
+            }
+          }
+        },
+        "ID8481186" : {
+          "person" : {
+            "id" : 8481186,
+            "fullName" : "Logan O'Connor",
+            "link" : "/api/v1/people/8481186",
+            "firstName" : "Logan",
+            "lastName" : "O'Connor",
+            "primaryNumber" : "25",
+            "birthDate" : "1996-08-14",
+            "currentAge" : 26,
+            "birthCity" : "Missouri City",
+            "birthStateProvince" : "TX",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 0\"",
+            "weight" : 175,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "R",
+              "name" : "Right Wing",
+              "type" : "Forward",
+              "abbreviation" : "RW"
+            }
+          },
+          "jerseyNumber" : "25",
+          "position" : {
+            "code" : "R",
+            "name" : "Right Wing",
+            "type" : "Forward",
+            "abbreviation" : "RW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "16:17",
+              "assists" : 1,
+              "goals" : 0,
+              "shots" : 4,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 1,
+              "evenTimeOnIce" : "11:40",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "4:37"
+            }
+          }
+        },
+        "ID8473446" : {
+          "person" : {
+            "id" : 8473446,
+            "fullName" : "Erik Johnson",
+            "link" : "/api/v1/people/8473446",
+            "firstName" : "Erik",
+            "lastName" : "Johnson",
+            "primaryNumber" : "6",
+            "birthDate" : "1988-03-21",
+            "currentAge" : 34,
+            "birthCity" : "Bloomington",
+            "birthStateProvince" : "MN",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 4\"",
+            "weight" : 225,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "6",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "19:02",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 3,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 4,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "14:30",
+              "powerPlayTimeOnIce" : "0:09",
+              "shortHandedTimeOnIce" : "4:23"
+            }
+          }
+        },
+        "ID8471699" : {
+          "person" : {
+            "id" : 8471699,
+            "fullName" : "Andrew Cogliano",
+            "link" : "/api/v1/people/8471699",
+            "firstName" : "Andrew",
+            "lastName" : "Cogliano",
+            "primaryNumber" : "11",
+            "birthDate" : "1987-06-14",
+            "currentAge" : 35,
+            "birthCity" : "Toronto",
+            "birthStateProvince" : "ON",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 10\"",
+            "weight" : 179,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "11",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "16:23",
+              "assists" : 1,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 0.0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 1,
+              "takeaways" : 0,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 1,
+              "evenTimeOnIce" : "10:33",
+              "powerPlayTimeOnIce" : "0:12",
+              "shortHandedTimeOnIce" : "5:38"
+            }
+          }
+        },
+        "ID8479439" : {
+          "person" : {
+            "id" : 8479439,
+            "fullName" : "Jacob MacDonald",
+            "link" : "/api/v1/people/8479439",
+            "firstName" : "Jacob",
+            "lastName" : "MacDonald",
+            "primaryNumber" : "26",
+            "birthDate" : "1993-02-26",
+            "currentAge" : 29,
+            "birthCity" : "Portland",
+            "birthStateProvince" : "OR",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 0\"",
+            "weight" : 204,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "N",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "26",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "10:18",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 1,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "10:18",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8478038" : {
+          "person" : {
+            "id" : 8478038,
+            "fullName" : "Devon Toews",
+            "link" : "/api/v1/people/8478038",
+            "firstName" : "Devon",
+            "lastName" : "Toews",
+            "primaryNumber" : "7",
+            "birthDate" : "1994-02-21",
+            "currentAge" : 28,
+            "birthCity" : "Abbotsford",
+            "birthStateProvince" : "BC",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 1\"",
+            "weight" : 191,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "7",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "26:03",
+              "assists" : 2,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 2,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 1,
+              "penaltyMinutes" : 2,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 1,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 4,
+              "plusMinus" : 1,
+              "evenTimeOnIce" : "16:19",
+              "powerPlayTimeOnIce" : "1:44",
+              "shortHandedTimeOnIce" : "8:00"
+            }
+          }
+        },
+        "ID8477476" : {
+          "person" : {
+            "id" : 8477476,
+            "fullName" : "Artturi Lehkonen",
+            "link" : "/api/v1/people/8477476",
+            "firstName" : "Artturi",
+            "lastName" : "Lehkonen",
+            "primaryNumber" : "62",
+            "birthDate" : "1995-07-04",
+            "currentAge" : 27,
+            "birthCity" : "Piikkio",
+            "birthCountry" : "FIN",
+            "nationality" : "FIN",
+            "height" : "5' 11\"",
+            "weight" : 179,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "L",
+              "name" : "Left Wing",
+              "type" : "Forward",
+              "abbreviation" : "LW"
+            }
+          },
+          "jerseyNumber" : "62",
+          "position" : {
+            "code" : "L",
+            "name" : "Left Wing",
+            "type" : "Forward",
+            "abbreviation" : "LW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "25:18",
+              "assists" : 0,
+              "goals" : 1,
+              "shots" : 4,
+              "hits" : 0,
+              "powerPlayGoals" : 1,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 1,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "12:14",
+              "powerPlayTimeOnIce" : "7:58",
+              "shortHandedTimeOnIce" : "5:06"
+            }
+          }
+        },
+        "ID8480822" : {
+          "person" : {
+            "id" : 8480822,
+            "fullName" : "Martin Kaut",
+            "link" : "/api/v1/people/8480822",
+            "firstName" : "Martin",
+            "lastName" : "Kaut",
+            "primaryNumber" : "61",
+            "birthDate" : "1999-10-02",
+            "currentAge" : 23,
+            "birthCity" : "Brno",
+            "birthCountry" : "CZE",
+            "nationality" : "CZE",
+            "height" : "6' 2\"",
+            "weight" : 190,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "N",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "R",
+              "name" : "Right Wing",
+              "type" : "Forward",
+              "abbreviation" : "RW"
+            }
+          },
+          "jerseyNumber" : "61",
+          "position" : {
+            "code" : "N/A",
+            "name" : "Unknown",
+            "type" : "Unknown",
+            "abbreviation" : "N/A"
+          },
+          "stats" : { }
+        },
+        "ID8476312" : {
+          "person" : {
+            "id" : 8476312,
+            "fullName" : "Josh Manson",
+            "link" : "/api/v1/people/8476312",
+            "firstName" : "Josh",
+            "lastName" : "Manson",
+            "primaryNumber" : "42",
+            "birthDate" : "1991-10-07",
+            "currentAge" : 31,
+            "birthCity" : "Hinsdale",
+            "birthStateProvince" : "IL",
+            "birthCountry" : "USA",
+            "nationality" : "CAN",
+            "height" : "6' 3\"",
+            "weight" : 218,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "42",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "10:17",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 3,
+              "plusMinus" : 1,
+              "evenTimeOnIce" : "8:14",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "2:03"
+            }
+          }
+        },
+        "ID8476851" : {
+          "person" : {
+            "id" : 8476851,
+            "fullName" : "Alex Galchenyuk",
+            "link" : "/api/v1/people/8476851",
+            "firstName" : "Alex",
+            "lastName" : "Galchenyuk",
+            "primaryNumber" : "47",
+            "birthDate" : "1994-02-12",
+            "currentAge" : 28,
+            "birthCity" : "Milwaukee",
+            "birthStateProvince" : "WI",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 1\"",
+            "weight" : 194,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "47",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "6:31",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 100.0,
+              "faceOffWins" : 1,
+              "faceoffTaken" : 1,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 1,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "5:57",
+              "powerPlayTimeOnIce" : "0:34",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8477126" : {
+          "person" : {
+            "id" : 8477126,
+            "fullName" : "Jayson Megna",
+            "link" : "/api/v1/people/8477126",
+            "firstName" : "Jayson",
+            "lastName" : "Megna",
+            "primaryNumber" : "12",
+            "birthDate" : "1990-02-01",
+            "currentAge" : 32,
+            "birthCity" : "Fort Lauderdale",
+            "birthStateProvince" : "FL",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 1\"",
+            "weight" : 195,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "12",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "5:05",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffPct" : 100.0,
+              "faceOffWins" : 2,
+              "faceoffTaken" : 2,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "5:05",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8477456" : {
+          "person" : {
+            "id" : 8477456,
+            "fullName" : "J.T. Compher",
+            "link" : "/api/v1/people/8477456",
+            "firstName" : "J.T.",
+            "lastName" : "Compher",
+            "primaryNumber" : "37",
+            "birthDate" : "1995-04-08",
+            "currentAge" : 27,
+            "birthCity" : "Northbrook",
+            "birthStateProvince" : "IL",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 0\"",
+            "weight" : 190,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "L",
+              "name" : "Left Wing",
+              "type" : "Forward",
+              "abbreviation" : "LW"
+            }
+          },
+          "jerseyNumber" : "37",
+          "position" : {
+            "code" : "L",
+            "name" : "Left Wing",
+            "type" : "Forward",
+            "abbreviation" : "LW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "22:09",
+              "assists" : 2,
+              "goals" : 2,
+              "shots" : 3,
+              "hits" : 0,
+              "powerPlayGoals" : 1,
+              "powerPlayAssists" : 1,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 65.63,
+              "faceOffWins" : 21,
+              "faceoffTaken" : 32,
+              "takeaways" : 1,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 2,
+              "evenTimeOnIce" : "10:33",
+              "powerPlayTimeOnIce" : "7:17",
+              "shortHandedTimeOnIce" : "4:19"
+            }
+          }
+        },
+        "ID8481618" : {
+          "person" : {
+            "id" : 8481618,
+            "fullName" : "Alex Newhook",
+            "link" : "/api/v1/people/8481618",
+            "firstName" : "Alex",
+            "lastName" : "Newhook",
+            "primaryNumber" : "18",
+            "birthDate" : "2001-01-28",
+            "currentAge" : 21,
+            "birthCity" : "St. John's",
+            "birthStateProvince" : "NL",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 10\"",
+            "weight" : 190,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "18",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "11:49",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 33.33,
+              "faceOffWins" : 3,
+              "faceoffTaken" : 9,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "10:19",
+              "powerPlayTimeOnIce" : "1:30",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8478542" : {
+          "person" : {
+            "id" : 8478542,
+            "fullName" : "Evan Rodrigues",
+            "link" : "/api/v1/people/8478542",
+            "firstName" : "Evan",
+            "lastName" : "Rodrigues",
+            "primaryNumber" : "9",
+            "birthDate" : "1993-07-28",
+            "currentAge" : 29,
+            "birthCity" : "Toronto",
+            "birthStateProvince" : "ON",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 11\"",
+            "weight" : 184,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "9",
+          "position" : {
+            "code" : "N/A",
+            "name" : "Unknown",
+            "type" : "Unknown",
+            "abbreviation" : "N/A"
+          },
+          "stats" : { }
+        },
+        "ID8478211" : {
+          "person" : {
+            "id" : 8478211,
+            "fullName" : "Dryden Hunt",
+            "link" : "/api/v1/people/8478211",
+            "firstName" : "Dryden",
+            "lastName" : "Hunt",
+            "primaryNumber" : "22",
+            "birthDate" : "1995-11-24",
+            "currentAge" : 27,
+            "birthCity" : "Cranbrook",
+            "birthStateProvince" : "BC",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 0\"",
+            "weight" : 193,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "L",
+              "name" : "Left Wing",
+              "type" : "Forward",
+              "abbreviation" : "LW"
+            }
+          },
+          "jerseyNumber" : "22",
+          "position" : {
+            "code" : "L",
+            "name" : "Left Wing",
+            "type" : "Forward",
+            "abbreviation" : "LW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "7:11",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 3,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "7:11",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8477320" : {
+          "person" : {
+            "id" : 8477320,
+            "fullName" : "Anton Blidh",
+            "link" : "/api/v1/people/8477320",
+            "firstName" : "Anton",
+            "lastName" : "Blidh",
+            "primaryNumber" : "36",
+            "birthDate" : "1995-03-14",
+            "currentAge" : 27,
+            "birthCity" : "Molnlycke",
+            "birthCountry" : "SWE",
+            "nationality" : "SWE",
+            "height" : "6' 1\"",
+            "weight" : 197,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "L",
+              "name" : "Left Wing",
+              "type" : "Forward",
+              "abbreviation" : "LW"
+            }
+          },
+          "jerseyNumber" : "36",
+          "position" : {
+            "code" : "L",
+            "name" : "Left Wing",
+            "type" : "Forward",
+            "abbreviation" : "LW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "6:37",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "6:31",
+              "powerPlayTimeOnIce" : "0:02",
+              "shortHandedTimeOnIce" : "0:04"
+            }
+          }
+        },
+        "ID8479398" : {
+          "person" : {
+            "id" : 8479398,
+            "fullName" : "Samuel Girard",
+            "link" : "/api/v1/people/8479398",
+            "firstName" : "Samuel",
+            "lastName" : "Girard",
+            "primaryNumber" : "49",
+            "birthDate" : "1998-05-12",
+            "currentAge" : 24,
+            "birthCity" : "Roberval",
+            "birthStateProvince" : "QC",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 10\"",
+            "weight" : 170,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "49",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "16:13",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 3,
+              "plusMinus" : 1,
+              "evenTimeOnIce" : "15:20",
+              "powerPlayTimeOnIce" : "0:11",
+              "shortHandedTimeOnIce" : "0:42"
+            }
+          }
+        },
+        "ID8478420" : {
+          "person" : {
+            "id" : 8478420,
+            "fullName" : "Mikko Rantanen",
+            "link" : "/api/v1/people/8478420",
+            "firstName" : "Mikko",
+            "lastName" : "Rantanen",
+            "primaryNumber" : "96",
+            "birthDate" : "1996-10-29",
+            "currentAge" : 26,
+            "birthCity" : "Nousiainen",
+            "birthCountry" : "FIN",
+            "nationality" : "FIN",
+            "height" : "6' 4\"",
+            "weight" : 215,
+            "active" : True,
+            "alternateCaptain" : True,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "R",
+              "name" : "Right Wing",
+              "type" : "Forward",
+              "abbreviation" : "RW"
+            }
+          },
+          "jerseyNumber" : "96",
+          "position" : {
+            "code" : "R",
+            "name" : "Right Wing",
+            "type" : "Forward",
+            "abbreviation" : "RW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "25:04",
+              "assists" : 1,
+              "goals" : 1,
+              "shots" : 2,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 1,
+              "penaltyMinutes" : 2,
+              "faceOffPct" : 60.0,
+              "faceOffWins" : 3,
+              "faceoffTaken" : 5,
+              "takeaways" : 3,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 1,
+              "evenTimeOnIce" : "16:13",
+              "powerPlayTimeOnIce" : "8:51",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8482147" : {
+          "person" : {
+            "id" : 8482147,
+            "fullName" : "Jean-Luc Foudy",
+            "link" : "/api/v1/people/8482147",
+            "firstName" : "Jean-Luc",
+            "lastName" : "Foudy",
+            "primaryNumber" : "93",
+            "birthDate" : "2002-05-13",
+            "currentAge" : 20,
+            "birthCity" : "Scarborough",
+            "birthStateProvince" : "ON",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 11\"",
+            "weight" : 177,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : True,
+            "shootsCatches" : "R",
+            "rosterStatus" : "N",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "93",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "7:24",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "6:03",
+              "powerPlayTimeOnIce" : "1:21",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8477492" : {
+          "person" : {
+            "id" : 8477492,
+            "fullName" : "Nathan MacKinnon",
+            "link" : "/api/v1/people/8477492",
+            "firstName" : "Nathan",
+            "lastName" : "MacKinnon",
+            "primaryNumber" : "29",
+            "birthDate" : "1995-09-01",
+            "currentAge" : 27,
+            "birthCity" : "Halifax",
+            "birthStateProvince" : "NS",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 0\"",
+            "weight" : 200,
+            "active" : True,
+            "alternateCaptain" : True,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "29",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "25:09",
+              "assists" : 3,
+              "goals" : 2,
+              "shots" : 8,
+              "hits" : 0,
+              "powerPlayGoals" : 1,
+              "powerPlayAssists" : 2,
+              "penaltyMinutes" : 2,
+              "faceOffPct" : 44.44,
+              "faceOffWins" : 8,
+              "faceoffTaken" : 18,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 2,
+              "plusMinus" : 1,
+              "evenTimeOnIce" : "16:28",
+              "powerPlayTimeOnIce" : "8:38",
+              "shortHandedTimeOnIce" : "0:03"
+            }
+          }
+        },
+        "ID8480069" : {
+          "person" : {
+            "id" : 8480069,
+            "fullName" : "Cale Makar",
+            "link" : "/api/v1/people/8480069",
+            "firstName" : "Cale",
+            "lastName" : "Makar",
+            "primaryNumber" : "8",
+            "birthDate" : "1998-10-30",
+            "currentAge" : 24,
+            "birthCity" : "Calgary",
+            "birthStateProvince" : "AB",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 11\"",
+            "weight" : 187,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "8",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "30:38",
+              "assists" : 2,
+              "goals" : 0,
+              "shots" : 6,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 1,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "15:38",
+              "powerPlayTimeOnIce" : "8:38",
+              "shortHandedTimeOnIce" : "6:22"
+            }
+          }
+        },
+        "ID8481524" : {
+          "person" : {
+            "id" : 8481524,
+            "fullName" : "Bowen Byram",
+            "link" : "/api/v1/people/8481524",
+            "firstName" : "Bowen",
+            "lastName" : "Byram",
+            "primaryNumber" : "4",
+            "birthDate" : "2001-06-13",
+            "currentAge" : 21,
+            "birthCity" : "Cranbrook",
+            "birthStateProvince" : "BC",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 1\"",
+            "weight" : 190,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "4",
+          "position" : {
+            "code" : "N/A",
+            "name" : "Unknown",
+            "type" : "Unknown",
+            "abbreviation" : "N/A"
+          },
+          "stats" : { }
+        }
+      },
+      "goalies" : [ 8480382 ],
+      "skaters" : [ 8473446, 8478038, 8480069, 8471699, 8477126, 8481618, 8478211, 8481186, 8479439, 8477492, 8477320, 8477456, 8476312, 8476851, 8479398, 8477476, 8482147, 8478420, 8481524, 8478542, 8480822 ],
+      "onIce" : [ 8471699, 8473446, 8477456, 8478038, 8480382, 8481186 ],
+      "onIcePlus" : [ {
+        "playerId" : 8471699,
+        "shiftDuration" : 35,
+        "stamina" : 66
+      }, {
+        "playerId" : 8473446,
+        "shiftDuration" : 73,
+        "stamina" : 33
+      }, {
+        "playerId" : 8477456,
+        "shiftDuration" : 66,
+        "stamina" : 33
+      }, {
+        "playerId" : 8478038,
+        "shiftDuration" : 75,
+        "stamina" : 33
+      }, {
+        "playerId" : 8480382,
+        "shiftDuration" : 355,
+        "stamina" : 33
+      }, {
+        "playerId" : 8481186,
+        "shiftDuration" : 35,
+        "stamina" : 66
+      } ],
+      "scratches" : [ 8481524, 8478542, 8480822 ],
+      "penaltyBox" : [ ],
+      "coaches" : [ {
+        "person" : {
+          "fullName" : "Jared Bednar",
+          "link" : "/api/v1/people/null"
+        },
+        "position" : {
+          "code" : "HC",
+          "name" : "Head Coach",
+          "type" : "Head Coach",
+          "abbreviation" : "Head Coach"
+        }
+      } ]
+    },
+    "home" : {
+      "team" : {
+        "id" : 7,
+        "name" : "Buffalo Sabres",
+        "link" : "/api/v1/teams/7"
+      },
+      "teamStats" : {
+        "teamSkaterStats" : {
+          "goals" : 4,
+          "pim" : 14,
+          "shots" : 28,
+          "powerPlayPercentage" : "28.6",
+          "powerPlayGoals" : 2.0,
+          "powerPlayOpportunities" : 7.0,
+          "faceOffWinPercentage" : "44.1",
+          "blocked" : 6,
+          "takeaways" : 4,
+          "giveaways" : 6,
+          "hits" : 13
+        }
+      },
+      "players" : {
+        "ID8482097" : {
+          "person" : {
+            "id" : 8482097,
+            "fullName" : "Jack Quinn",
+            "link" : "/api/v1/people/8482097",
+            "firstName" : "Jack",
+            "lastName" : "Quinn",
+            "primaryNumber" : "22",
+            "birthDate" : "2001-09-19",
+            "currentAge" : 21,
+            "birthCity" : "Ottawa",
+            "birthStateProvince" : "ON",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 1\"",
+            "weight" : 185,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : True,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "R",
+              "name" : "Right Wing",
+              "type" : "Forward",
+              "abbreviation" : "RW"
+            }
+          },
+          "jerseyNumber" : "22",
+          "position" : {
+            "code" : "R",
+            "name" : "Right Wing",
+            "type" : "Forward",
+            "abbreviation" : "RW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "13:37",
+              "assists" : 1,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 1,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 1,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "8:58",
+              "powerPlayTimeOnIce" : "4:39",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8482671" : {
+          "person" : {
+            "id" : 8482671,
+            "fullName" : "Owen Power",
+            "link" : "/api/v1/people/8482671",
+            "firstName" : "Owen",
+            "lastName" : "Power",
+            "primaryNumber" : "25",
+            "birthDate" : "2002-11-22",
+            "currentAge" : 20,
+            "birthCity" : "Mississauga",
+            "birthStateProvince" : "ON",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 6\"",
+            "weight" : 218,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : True,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "25",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "21:35",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 4,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "15:41",
+              "powerPlayTimeOnIce" : "4:51",
+              "shortHandedTimeOnIce" : "1:03"
+            }
+          }
+        },
+        "ID8482175" : {
+          "person" : {
+            "id" : 8482175,
+            "fullName" : "JJ Peterka",
+            "link" : "/api/v1/people/8482175",
+            "firstName" : "JJ",
+            "lastName" : "Peterka",
+            "primaryNumber" : "77",
+            "birthDate" : "2002-01-14",
+            "currentAge" : 20,
+            "birthCity" : "Munich",
+            "birthCountry" : "DEU",
+            "nationality" : "DEU",
+            "height" : "6' 0\"",
+            "weight" : 189,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : True,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "R",
+              "name" : "Right Wing",
+              "type" : "Forward",
+              "abbreviation" : "RW"
+            }
+          },
+          "jerseyNumber" : "77",
+          "position" : {
+            "code" : "R",
+            "name" : "Right Wing",
+            "type" : "Forward",
+            "abbreviation" : "RW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "15:32",
+              "assists" : 0,
+              "goals" : 1,
+              "shots" : 2,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "10:11",
+              "powerPlayTimeOnIce" : "5:13",
+              "shortHandedTimeOnIce" : "0:08"
+            }
+          }
+        },
+        "ID8480807" : {
+          "person" : {
+            "id" : 8480807,
+            "fullName" : "Mattias Samuelsson",
+            "link" : "/api/v1/people/8480807",
+            "firstName" : "Mattias",
+            "lastName" : "Samuelsson",
+            "primaryNumber" : "23",
+            "birthDate" : "2000-03-14",
+            "currentAge" : 22,
+            "birthCity" : "Philadelphia",
+            "birthStateProvince" : "PA",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 4\"",
+            "weight" : 231,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "23",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "22:31",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 2,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 2,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 1,
+              "plusMinus" : -1,
+              "evenTimeOnIce" : "16:23",
+              "powerPlayTimeOnIce" : "0:16",
+              "shortHandedTimeOnIce" : "5:52"
+            }
+          }
+        },
+        "ID8477949" : {
+          "person" : {
+            "id" : 8477949,
+            "fullName" : "Alex Tuch",
+            "link" : "/api/v1/people/8477949",
+            "firstName" : "Alex",
+            "lastName" : "Tuch",
+            "primaryNumber" : "89",
+            "birthDate" : "1996-05-10",
+            "currentAge" : 26,
+            "birthCity" : "Syracuse",
+            "birthStateProvince" : "NY",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 4\"",
+            "weight" : 219,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "R",
+              "name" : "Right Wing",
+              "type" : "Forward",
+              "abbreviation" : "RW"
+            }
+          },
+          "jerseyNumber" : "89",
+          "position" : {
+            "code" : "R",
+            "name" : "Right Wing",
+            "type" : "Forward",
+            "abbreviation" : "RW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "21:38",
+              "assists" : 0,
+              "goals" : 1,
+              "shots" : 3,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 1,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "13:57",
+              "powerPlayTimeOnIce" : "5:54",
+              "shortHandedTimeOnIce" : "1:47"
+            }
+          }
+        },
+        "ID8473449" : {
+          "person" : {
+            "id" : 8473449,
+            "fullName" : "Kyle Okposo",
+            "link" : "/api/v1/people/8473449",
+            "firstName" : "Kyle",
+            "lastName" : "Okposo",
+            "primaryNumber" : "21",
+            "birthDate" : "1988-04-16",
+            "currentAge" : 34,
+            "birthCity" : "St. Paul",
+            "birthStateProvince" : "MN",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 0\"",
+            "weight" : 218,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : True,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "R",
+              "name" : "Right Wing",
+              "type" : "Forward",
+              "abbreviation" : "RW"
+            }
+          },
+          "jerseyNumber" : "21",
+          "position" : {
+            "code" : "R",
+            "name" : "Right Wing",
+            "type" : "Forward",
+            "abbreviation" : "RW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "12:42",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 2,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffPct" : 33.33,
+              "faceOffWins" : 2,
+              "faceoffTaken" : 6,
+              "takeaways" : 0,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "8:53",
+              "powerPlayTimeOnIce" : "0:15",
+              "shortHandedTimeOnIce" : "3:34"
+            }
+          }
+        },
+        "ID8479999" : {
+          "person" : {
+            "id" : 8479999,
+            "fullName" : "Casey Mittelstadt",
+            "link" : "/api/v1/people/8479999",
+            "firstName" : "Casey",
+            "lastName" : "Mittelstadt",
+            "primaryNumber" : "37",
+            "birthDate" : "1998-11-22",
+            "currentAge" : 24,
+            "birthCity" : "Eden Prairie",
+            "birthStateProvince" : "MN",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 1\"",
+            "weight" : 195,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "37",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "13:36",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 80.0,
+              "faceOffWins" : 4,
+              "faceoffTaken" : 5,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "8:56",
+              "powerPlayTimeOnIce" : "4:40",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8476878" : {
+          "person" : {
+            "id" : 8476878,
+            "fullName" : "Zemgus Girgensons",
+            "link" : "/api/v1/people/8476878",
+            "firstName" : "Zemgus",
+            "lastName" : "Girgensons",
+            "primaryNumber" : "28",
+            "birthDate" : "1994-01-05",
+            "currentAge" : 28,
+            "birthCity" : "Riga",
+            "birthCountry" : "LVA",
+            "nationality" : "LVA",
+            "height" : "6' 2\"",
+            "weight" : 200,
+            "active" : True,
+            "alternateCaptain" : True,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "L",
+              "name" : "Left Wing",
+              "type" : "Forward",
+              "abbreviation" : "LW"
+            }
+          },
+          "jerseyNumber" : "28",
+          "position" : {
+            "code" : "L",
+            "name" : "Left Wing",
+            "type" : "Forward",
+            "abbreviation" : "LW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "11:44",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 50.0,
+              "faceOffWins" : 2,
+              "faceoffTaken" : 4,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "7:37",
+              "powerPlayTimeOnIce" : "0:15",
+              "shortHandedTimeOnIce" : "3:52"
+            }
+          }
+        },
+        "ID8478109" : {
+          "person" : {
+            "id" : 8478109,
+            "fullName" : "Victor Olofsson",
+            "link" : "/api/v1/people/8478109",
+            "firstName" : "Victor",
+            "lastName" : "Olofsson",
+            "primaryNumber" : "71",
+            "birthDate" : "1995-07-18",
+            "currentAge" : 27,
+            "birthCity" : "Ornskoldsvik",
+            "birthCountry" : "SWE",
+            "nationality" : "SWE",
+            "height" : "5' 11\"",
+            "weight" : 181,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "L",
+              "name" : "Left Wing",
+              "type" : "Forward",
+              "abbreviation" : "LW"
+            }
+          },
+          "jerseyNumber" : "71",
+          "position" : {
+            "code" : "L",
+            "name" : "Left Wing",
+            "type" : "Forward",
+            "abbreviation" : "LW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "12:37",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 2,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "7:17",
+              "powerPlayTimeOnIce" : "5:20",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8475784" : {
+          "person" : {
+            "id" : 8475784,
+            "fullName" : "Jeff Skinner",
+            "link" : "/api/v1/people/8475784",
+            "firstName" : "Jeff",
+            "lastName" : "Skinner",
+            "primaryNumber" : "53",
+            "birthDate" : "1992-05-16",
+            "currentAge" : 30,
+            "birthCity" : "Toronto",
+            "birthStateProvince" : "ON",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 11\"",
+            "weight" : 197,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "L",
+              "name" : "Left Wing",
+              "type" : "Forward",
+              "abbreviation" : "LW"
+            }
+          },
+          "jerseyNumber" : "53",
+          "position" : {
+            "code" : "L",
+            "name" : "Left Wing",
+            "type" : "Forward",
+            "abbreviation" : "LW"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "19:35",
+              "assists" : 2,
+              "goals" : 0,
+              "shots" : 5,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 2,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 20.0,
+              "faceOffWins" : 1,
+              "faceoffTaken" : 5,
+              "takeaways" : 1,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "13:49",
+              "powerPlayTimeOnIce" : "5:46",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8476994" : {
+          "person" : {
+            "id" : 8476994,
+            "fullName" : "Vinnie Hinostroza",
+            "link" : "/api/v1/people/8476994",
+            "firstName" : "Vinnie",
+            "lastName" : "Hinostroza",
+            "primaryNumber" : "29",
+            "birthDate" : "1994-04-03",
+            "currentAge" : 28,
+            "birthCity" : "Chicago",
+            "birthStateProvince" : "IL",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "5' 10\"",
+            "weight" : 183,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "29",
+          "position" : {
+            "code" : "N/A",
+            "name" : "Unknown",
+            "type" : "Unknown",
+            "abbreviation" : "N/A"
+          },
+          "stats" : { }
+        },
+        "ID8479335" : {
+          "person" : {
+            "id" : 8479335,
+            "fullName" : "Rasmus Asplund",
+            "link" : "/api/v1/people/8479335",
+            "firstName" : "Rasmus",
+            "lastName" : "Asplund",
+            "primaryNumber" : "74",
+            "birthDate" : "1997-12-03",
+            "currentAge" : 24,
+            "birthCity" : "Filipstad",
+            "birthCountry" : "SWE",
+            "nationality" : "SWE",
+            "height" : "5' 11\"",
+            "weight" : 185,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "74",
+          "position" : {
+            "code" : "N/A",
+            "name" : "Unknown",
+            "type" : "Unknown",
+            "abbreviation" : "N/A"
+          },
+          "stats" : { }
+        },
+        "ID8481528" : {
+          "person" : {
+            "id" : 8481528,
+            "fullName" : "Dylan Cozens",
+            "link" : "/api/v1/people/8481528",
+            "firstName" : "Dylan",
+            "lastName" : "Cozens",
+            "primaryNumber" : "24",
+            "birthDate" : "2001-02-09",
+            "currentAge" : 21,
+            "birthCity" : "Whitehorse",
+            "birthStateProvince" : "YT",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 3\"",
+            "weight" : 195,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "24",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "17:11",
+              "assists" : 2,
+              "goals" : 1,
+              "shots" : 1,
+              "hits" : 1,
+              "powerPlayGoals" : 1,
+              "powerPlayAssists" : 1,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 41.18,
+              "faceOffWins" : 7,
+              "faceoffTaken" : 17,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : -2,
+              "evenTimeOnIce" : "9:22",
+              "powerPlayTimeOnIce" : "4:58",
+              "shortHandedTimeOnIce" : "2:51"
+            }
+          }
+        },
+        "ID8479578" : {
+          "person" : {
+            "id" : 8479578,
+            "fullName" : "Casey Fitzgerald",
+            "link" : "/api/v1/people/8479578",
+            "firstName" : "Casey",
+            "lastName" : "Fitzgerald",
+            "primaryNumber" : "45",
+            "birthDate" : "1997-02-25",
+            "currentAge" : 25,
+            "birthCity" : "North Reading",
+            "birthStateProvince" : "MA",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "5' 11\"",
+            "weight" : 188,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "45",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "10:12",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 2,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "7:41",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "2:31"
+            }
+          }
+        },
+        "ID8480935" : {
+          "person" : {
+            "id" : 8480935,
+            "fullName" : "Lawrence Pilut",
+            "link" : "/api/v1/people/8480935",
+            "firstName" : "Lawrence",
+            "lastName" : "Pilut",
+            "primaryNumber" : "20",
+            "birthDate" : "1995-12-30",
+            "currentAge" : 26,
+            "birthCity" : "Tingsryd",
+            "birthCountry" : "SWE",
+            "nationality" : "SWE",
+            "height" : "5' 11\"",
+            "weight" : 194,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "20",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "6:50",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 0,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 1,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 1,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "6:50",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8480839" : {
+          "person" : {
+            "id" : 8480839,
+            "fullName" : "Rasmus Dahlin",
+            "link" : "/api/v1/people/8480839",
+            "firstName" : "Rasmus",
+            "lastName" : "Dahlin",
+            "primaryNumber" : "26",
+            "birthDate" : "2000-04-13",
+            "currentAge" : 22,
+            "birthCity" : "Lidkoping",
+            "birthCountry" : "SWE",
+            "nationality" : "SWE",
+            "height" : "6' 3\"",
+            "weight" : 202,
+            "active" : True,
+            "alternateCaptain" : True,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "26",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "28:11",
+              "assists" : 1,
+              "goals" : 0,
+              "shots" : 4,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "18:41",
+              "powerPlayTimeOnIce" : "5:54",
+              "shortHandedTimeOnIce" : "3:36"
+            }
+          }
+        },
+        "ID8479420" : {
+          "person" : {
+            "id" : 8479420,
+            "fullName" : "Tage Thompson",
+            "link" : "/api/v1/people/8479420",
+            "firstName" : "Tage",
+            "lastName" : "Thompson",
+            "primaryNumber" : "72",
+            "birthDate" : "1997-10-30",
+            "currentAge" : 25,
+            "birthCity" : "Phoenix",
+            "birthStateProvince" : "AZ",
+            "birthCountry" : "USA",
+            "nationality" : "USA",
+            "height" : "6' 6\"",
+            "weight" : 220,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "72",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "21:29",
+              "assists" : 2,
+              "goals" : 1,
+              "shots" : 4,
+              "hits" : 2,
+              "powerPlayGoals" : 1,
+              "powerPlayAssists" : 1,
+              "penaltyMinutes" : 2,
+              "faceOffPct" : 52.63,
+              "faceOffWins" : 10,
+              "faceoffTaken" : 19,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 1,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "14:55",
+              "powerPlayTimeOnIce" : "5:14",
+              "shortHandedTimeOnIce" : "1:20"
+            }
+          }
+        },
+        "ID8480045" : {
+          "person" : {
+            "id" : 8480045,
+            "fullName" : "Ukko-Pekka Luukkonen",
+            "link" : "/api/v1/people/8480045",
+            "firstName" : "Ukko-Pekka",
+            "lastName" : "Luukkonen",
+            "primaryNumber" : "1",
+            "birthDate" : "1999-03-09",
+            "currentAge" : 23,
+            "birthCity" : "Espoo",
+            "birthCountry" : "FIN",
+            "nationality" : "FIN",
+            "height" : "6' 5\"",
+            "weight" : 217,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : True,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "G",
+              "name" : "Goalie",
+              "type" : "Goalie",
+              "abbreviation" : "G"
+            }
+          },
+          "jerseyNumber" : "1",
+          "position" : {
+            "code" : "G",
+            "name" : "Goalie",
+            "type" : "Goalie",
+            "abbreviation" : "G"
+          },
+          "stats" : {
+            "goalieStats" : {
+              "timeOnIce" : "59:34",
+              "assists" : 0,
+              "goals" : 0,
+              "pim" : 0,
+              "shots" : 33,
+              "saves" : 28,
+              "powerPlaySaves" : 14,
+              "shortHandedSaves" : 0,
+              "evenSaves" : 14,
+              "shortHandedShotsAgainst" : 0,
+              "evenShotsAgainst" : 16,
+              "powerPlayShotsAgainst" : 17,
+              "decision" : "L",
+              "savePercentage" : 84.84848484848484,
+              "powerPlaySavePercentage" : 82.35294117647058,
+              "evenStrengthSavePercentage" : 87.5
+            }
+          }
+        },
+        "ID8480035" : {
+          "person" : {
+            "id" : 8480035,
+            "fullName" : "Henri Jokiharju",
+            "link" : "/api/v1/people/8480035",
+            "firstName" : "Henri",
+            "lastName" : "Jokiharju",
+            "primaryNumber" : "10",
+            "birthDate" : "1999-06-17",
+            "currentAge" : 23,
+            "birthCity" : "Oulu",
+            "birthCountry" : "FIN",
+            "nationality" : "FIN",
+            "height" : "6' 0\"",
+            "weight" : 200,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "10",
+          "position" : {
+            "code" : "D",
+            "name" : "Defenseman",
+            "type" : "Defenseman",
+            "abbreviation" : "D"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "20:21",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 2,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffWins" : 0,
+              "faceoffTaken" : 0,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "14:16",
+              "powerPlayTimeOnIce" : "0:15",
+              "shortHandedTimeOnIce" : "5:50"
+            }
+          }
+        },
+        "ID8479370" : {
+          "person" : {
+            "id" : 8479370,
+            "fullName" : "Tyson Jost",
+            "link" : "/api/v1/people/8479370",
+            "firstName" : "Tyson",
+            "lastName" : "Jost",
+            "primaryNumber" : "17",
+            "birthDate" : "1998-03-14",
+            "currentAge" : 24,
+            "birthCity" : "St. Albert",
+            "birthStateProvince" : "AB",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "5' 11\"",
+            "weight" : 187,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "17",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "12:55",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 0,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 0,
+              "faceOffPct" : 22.22,
+              "faceOffWins" : 2,
+              "faceoffTaken" : 9,
+              "takeaways" : 0,
+              "giveaways" : 1,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "8:34",
+              "powerPlayTimeOnIce" : "0:15",
+              "shortHandedTimeOnIce" : "4:06"
+            }
+          }
+        },
+        "ID8481522" : {
+          "person" : {
+            "id" : 8481522,
+            "fullName" : "Peyton Krebs",
+            "link" : "/api/v1/people/8481522",
+            "firstName" : "Peyton",
+            "lastName" : "Krebs",
+            "primaryNumber" : "19",
+            "birthDate" : "2001-01-26",
+            "currentAge" : 21,
+            "birthCity" : "Calgary",
+            "birthStateProvince" : "AB",
+            "birthCountry" : "CAN",
+            "nationality" : "CAN",
+            "height" : "6' 0\"",
+            "weight" : 187,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "L",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "C",
+              "name" : "Center",
+              "type" : "Forward",
+              "abbreviation" : "C"
+            }
+          },
+          "jerseyNumber" : "19",
+          "position" : {
+            "code" : "C",
+            "name" : "Center",
+            "type" : "Forward",
+            "abbreviation" : "C"
+          },
+          "stats" : {
+            "skaterStats" : {
+              "timeOnIce" : "7:35",
+              "assists" : 0,
+              "goals" : 0,
+              "shots" : 1,
+              "hits" : 1,
+              "powerPlayGoals" : 0,
+              "powerPlayAssists" : 0,
+              "penaltyMinutes" : 2,
+              "faceOffPct" : 66.67,
+              "faceOffWins" : 2,
+              "faceoffTaken" : 3,
+              "takeaways" : 0,
+              "giveaways" : 0,
+              "shortHandedGoals" : 0,
+              "shortHandedAssists" : 0,
+              "blocked" : 0,
+              "plusMinus" : 0,
+              "evenTimeOnIce" : "7:35",
+              "powerPlayTimeOnIce" : "0:00",
+              "shortHandedTimeOnIce" : "0:00"
+            }
+          }
+        },
+        "ID8480950" : {
+          "person" : {
+            "id" : 8480950,
+            "fullName" : "Ilya Lyubushkin",
+            "link" : "/api/v1/people/8480950",
+            "firstName" : "Ilya",
+            "lastName" : "Lyubushkin",
+            "primaryNumber" : "46",
+            "birthDate" : "1994-04-06",
+            "currentAge" : 28,
+            "birthCity" : "Moscow",
+            "birthCountry" : "RUS",
+            "nationality" : "RUS",
+            "height" : "6' 2\"",
+            "weight" : 200,
+            "active" : True,
+            "alternateCaptain" : False,
+            "captain" : False,
+            "rookie" : False,
+            "shootsCatches" : "R",
+            "rosterStatus" : "Y",
+            "currentTeam" : {
+              "id" : 7,
+              "name" : "Buffalo Sabres",
+              "link" : "/api/v1/teams/7"
+            },
+            "primaryPosition" : {
+              "code" : "D",
+              "name" : "Defenseman",
+              "type" : "Defenseman",
+              "abbreviation" : "D"
+            }
+          },
+          "jerseyNumber" : "46",
+          "position" : {
+            "code" : "N/A",
+            "name" : "Unknown",
+            "type" : "Unknown",
+            "abbreviation" : "N/A"
+          },
+          "stats" : { }
+        }
+      },
+      "goalies" : [ 8480045 ],
+      "skaters" : [ 8480035, 8479370, 8481522, 8480935, 8473449, 8482097, 8480807, 8481528, 8482671, 8480839, 8476878, 8479999, 8479578, 8475784, 8478109, 8479420, 8482175, 8477949, 8476994, 8480950, 8479335 ],
+      "onIce" : [ 8475784, 8477949, 8479420, 8480045, 8480839, 8482671 ],
+      "onIcePlus" : [ {
+        "playerId" : 8475784,
+        "shiftDuration" : 59,
+        "stamina" : 66
+      }, {
+        "playerId" : 8477949,
+        "shiftDuration" : 80,
+        "stamina" : 33
+      }, {
+        "playerId" : 8479420,
+        "shiftDuration" : 66,
+        "stamina" : 33
+      }, {
+        "playerId" : 8480045,
+        "shiftDuration" : 35,
+        "stamina" : 66
+      }, {
+        "playerId" : 8480839,
+        "shiftDuration" : 72,
+        "stamina" : 33
+      }, {
+        "playerId" : 8482671,
+        "shiftDuration" : 54,
+        "stamina" : 66
+      } ],
+      "scratches" : [ 8476994, 8480950, 8479335 ],
+      "penaltyBox" : [ ],
+      "coaches" : [ {
+        "person" : {
+          "fullName" : "Don Granato",
+          "link" : "/api/v1/people/null"
+        },
+        "position" : {
+          "code" : "HC",
+          "name" : "Head Coach",
+          "type" : "Head Coach",
+          "abbreviation" : "Head Coach"
+        }
+      } ]
+    }
+  },
+  "officials" : [ {
+    "official" : {
+      "id" : 6993,
+      "fullName" : "Peter MacDougall",
+      "link" : "/api/v1/people/6993"
+    },
+    "officialType" : "Referee"
+  }, {
+    "official" : {
+      "id" : 2458,
+      "fullName" : "Steve Kozari",
+      "link" : "/api/v1/people/2458"
+    },
+    "officialType" : "Referee"
+  }, {
+    "official" : {
+      "id" : 2298,
+      "fullName" : "Brad Kovachik",
+      "link" : "/api/v1/people/2298"
+    },
+    "officialType" : "Linesman"
+  }, {
+    "official" : {
+      "id" : 2326,
+      "fullName" : "Jonny Murray",
+      "link" : "/api/v1/people/2326"
+    },
+    "officialType" : "Linesman"
+  } ]
+}
