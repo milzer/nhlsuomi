@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from functools import total_ordering
-from typing import List, Optional, Tuple
+from typing import List, Optional, Set, Tuple
 
 
 def format_toi(seconds: int) -> str:
@@ -124,3 +124,11 @@ class Game:
             sum(points),
             len(self.skaters) + len(self.goalies)
         )
+
+    @property
+    def last_names(self) -> Set[str]:
+        return {
+            getattr(player, 'last_name')
+            for player
+            in (*self.skaters, *self.goalies)
+        }
