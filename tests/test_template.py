@@ -27,8 +27,8 @@ class TestParser(unittest.TestCase):
                 {% endfor %}
             {% endfor %}
 
-            {% for datetime, game in schedule %}
-                {{datetime}} - {{game}}
+            {% for datetime, home, away in schedule %}
+                {{datetime}} - {{away}}@{{home}}
             {% endfor %}
 
             </body>
@@ -48,8 +48,8 @@ class TestParser(unittest.TestCase):
             ('I', 'J', '92.6%', '60:00', 20)
             ('G', 'H', '81.1%', '40:00', 10)
             BOS 2 - 1 BUF
-            2.12. 21:00 - game
-            3.13. 22:00 - other game
+            2.12. 21:00 - away1@home1
+            3.13. 22:00 - away2@home2
             </body>
             </html>
         ''').strip()
@@ -76,8 +76,8 @@ class TestParser(unittest.TestCase):
         ]
 
         schedule = [
-            ('2.12. 21:00', 'game'),
-            ('3.13. 22:00', 'other game')
+            ('2.12. 21:00', 'home1', 'away1'),
+            ('3.13. 22:00', 'home2', 'away2')
         ]
 
         result = html.render(template, games, highlights, schedule, '1.12.2022 12:34:56')

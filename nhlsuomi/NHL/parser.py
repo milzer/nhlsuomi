@@ -1,20 +1,29 @@
 from contextlib import suppress
+from datetime import datetime
 from typing import Iterable, List, Mapping, Optional, Set, Tuple
 
+from nhlsuomi import utils
 from nhlsuomi.data import Game, Goalie, Skater
 from nhlsuomi.logging import logger
 
 
-def _parse_schedule_games(schedule: Mapping) -> Iterable[Tuple[Mapping, str]]:
+def _parse_schedule_games(schedule: Mapping, state_filter: Optional[str] = None) -> Iterable[Tuple[Mapping, str]]:
     for date in schedule['dates']:
         for game in date['games']:
-            if game['status']['detailedState'] == 'Postponed':
+            detailed_state = game['status']['detailedState']
+
+            if detailed_state == 'Postponed':
+                continue
+            elif detailed_state == 'Scheduled':
+                state = detailed_state
+            else:
+                state = game['status']['abstractGameState']
+
+            if state not in {'Preview', 'Live', 'Final', 'Scheduled'}:
+                logger.warning(f'Invalid game state: {state}')
                 continue
 
-            state = game['status']['abstractGameState']
-
-            if state not in {'Preview', 'Live', 'Final'}:
-                logger.warning(f'Invalid abstractGameState: {state}')
+            if state_filter and state != state_filter:
                 continue
 
             yield game, state
@@ -177,3 +186,17 @@ def parse_players_goalies(players: Iterable[Mapping]) -> Iterable[Goalie]:
                 _parse_toi(stats['timeOnIce']),
                 stats['shots']
             )
+
+
+def parse_schedule_upcoming(schedule: Mapping, timezone: str, from_h: int, to_h: int) -> Iterable[Tuple[datetime, str, str]]:
+    localizer = utils.dt_localizer(timezone)
+
+    for game, _ in _parse_schedule_games(schedule, state_filter='Scheduled'):
+        gamedate = datetime.strptime(game['gameDate'], '%Y-%m-%dT%H:%M:%SZ')
+        local_datetime = localizer(gamedate)
+
+        if from_h <= local_datetime.hour < to_h:
+            home = game['teams']['home']['team']['name']
+            away = game['teams']['away']['team']['name']
+
+            yield (local_datetime, home, away)
