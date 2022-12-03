@@ -1,5 +1,4 @@
 import unittest
-from datetime import datetime
 
 from nhlsuomi.data import Game
 from nhlsuomi.NHL import parser
@@ -62,4 +61,4 @@ class TestParser(unittest.TestCase):
     def test_parse_upcoming(self):
         result = list(parser.parse_schedule_upcoming(data.upcoming_schedule, 'Europe/Helsinki', 18, 22))
         self.assertEqual(len(result), 1)
-        self.assertEqual(result[0], (datetime(2022, 12, 3, 21, 0), 'Minnesota Wild', 'Anaheim Ducks'))
+        self.assertEqual(result[0], ('03.12. 21:00', 'Minnesota Wild', 'Anaheim Ducks'))

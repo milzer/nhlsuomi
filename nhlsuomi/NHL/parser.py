@@ -188,7 +188,11 @@ def parse_players_goalies(players: Iterable[Mapping]) -> Iterable[Goalie]:
             )
 
 
-def parse_schedule_upcoming(schedule: Mapping, timezone: str, from_h: int, to_h: int) -> Iterable[Tuple[datetime, str, str]]:
+def parse_schedule_upcoming(schedule: Mapping,
+                            timezone: str,
+                            from_h: int,
+                            to_h: int,
+                            format: str = '%d.%m. %H:%M') -> Iterable[Tuple[str, str, str]]:
     localizer = utils.dt_localizer(timezone)
 
     for game, _ in _parse_schedule_games(schedule, state_filter='Scheduled'):
@@ -199,4 +203,4 @@ def parse_schedule_upcoming(schedule: Mapping, timezone: str, from_h: int, to_h:
             home = game['teams']['home']['team']['name']
             away = game['teams']['away']['team']['name']
 
-            yield (local_datetime, home, away)
+            yield (local_datetime.strftime(format), home, away)

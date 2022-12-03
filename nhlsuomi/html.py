@@ -9,7 +9,7 @@ from nhlsuomi.data import Game
 def render(template: str,
            games: Iterable[Game],
            highlights: Iterable[Tuple[str, str]],
-           schedule: Iterable[Tuple[datetime, str, str]],
+           schedule: Iterable[Tuple[str, str, str]],
            timestamp: Optional[str] = None) -> str:
 
     html = Template(template).render(
