@@ -55,6 +55,9 @@ def _parse_recap_url(game: Mapping) -> Optional[str]:
 
         return _parse_best_playback_url(item['playbacks'])
 
+    except StopIteration:
+        pass
+
     except Exception:
         logger.exception('Recap url parsing failed')
 
