@@ -28,9 +28,9 @@ class TestParser(unittest.TestCase):
 
     def test_parse_keyword_highlights(self):
         expected_highlights = [
-            ('TBL@CBJ: Perry scores PPG in 1st period', 'https://wsczoominwestus.prod-cdn.clipro.tv/editor/849ad95b-62b0-4c87-8bc8-2cd921945b37.mp4'),
-            ('TBL@CBJ: Stamkos scores in 1st period', 'https://wsczoominwestus.prod-cdn.clipro.tv/editor/01bc71df-6839-4d32-98c7-c0107461f9b5.mp4'),
-            ('TBL@CBJ: Stamkos deflects home his second goal', 'https://wsczoominwestus.prod-cdn.clipro.tv/editor/eb719f38-ee19-4f3f-95c2-ae48dc5ffd50.mp4'),
+            ('Perry scores PPG', 'https://wsczoominwestus.prod-cdn.clipro.tv/editor/849ad95b-62b0-4c87-8bc8-2cd921945b37.mp4'),
+            ('Stamkos scores goal', 'https://wsczoominwestus.prod-cdn.clipro.tv/editor/01bc71df-6839-4d32-98c7-c0107461f9b5.mp4'),
+            ('Stamkos\' second goal of game', 'https://wsczoominwestus.prod-cdn.clipro.tv/editor/eb719f38-ee19-4f3f-95c2-ae48dc5ffd50.mp4'),
         ]
         actual_highlights = list(parser.parse_schedule_highlights(schedule, {'perry', 'stamkos'}))
         self.assertListEqual(actual_highlights, expected_highlights)
