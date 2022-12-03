@@ -97,7 +97,7 @@ def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> 
 
         for item in items:
             try:
-                title = item['blurb'] or item['title']
+                title = item['title']
 
                 if keywords:
                     lowercase_title = title.casefold()
