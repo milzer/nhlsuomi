@@ -170,7 +170,7 @@ def parse_players_goalies(players: Iterable[Mapping]) -> Iterable[Goalie]:
             yield Goalie(
                 player['person']['firstName'],
                 player['person']['lastName'],
-                stats['savePercentage'],
+                stats['savePercentage'] / 100,
                 _parse_toi(stats['timeOnIce']),
                 stats['shots']
             )

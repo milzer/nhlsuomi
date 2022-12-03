@@ -17,7 +17,6 @@ class TestParser(unittest.TestCase):
         actual_games = list(parser.parse_schedule_games(schedule))
         self.assertListEqual(actual_games, expected_games)
 
-
     def test_parse_recap_url(self):
         game = schedule['dates'][0]['games'][0]
         url = parser._parse_recap_url(game)
@@ -56,5 +55,5 @@ class TestParser(unittest.TestCase):
         players = parser.parse_boxscore_players(boxscore)
         goalies = list(parser.parse_players_goalies(players))
         self.assertEqual(len(goalies), 2)
-        self.assertEqual(repr(goalies[0]), "Goalie(first_name='Ukko-Pekka', last_name='Luukkonen', spct=84.84848484848484, toi=3574, shots=33)")
+        self.assertEqual(repr(goalies[0]), "Goalie(first_name='Ukko-Pekka', last_name='Luukkonen', spct=0.8484848484848484, toi=3574, shots=33)")
         self.assertEqual(goalies[1].last_name, 'Georgiev')
