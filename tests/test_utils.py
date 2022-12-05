@@ -4,7 +4,7 @@ from datetime import datetime
 from nhlsuomi import utils
 
 
-class TestParser(unittest.TestCase):
+class TestUtils(unittest.TestCase):
     def test_dt_localizer(self):
         localizer = utils.dt_localizer('Europe/Helsinki')
         utc_datetime = datetime(2022, 12, 1, 23)
