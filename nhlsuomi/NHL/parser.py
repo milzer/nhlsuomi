@@ -137,31 +137,25 @@ def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> 
     )
 
 
-def parse_boxscore_players(boxscore: Mapping, nationalities: Set[str] = set()) -> Iterable[Mapping]:
-    players = (
-        *boxscore['teams']['home']['players'].values(),
-        *boxscore['teams']['away']['players'].values()
-    )
-
-    if nationalities:
-        for player in players:
-            if player['person']['nationality'] in nationalities:
-                yield player
-    else:
-        yield from players
-
-
 def _parse_toi(toi: str) -> int:
     mm, ss = toi.split(':')
     return int(mm) * 60 + int(ss)
 
 
-def parse_players_skaters(players: Iterable[Mapping]) -> Iterable[Skater]:
+def parse_boxscore_players(boxscore: Mapping) -> Tuple[List[Skater], List[Goalie]]:
+    players = (
+        *boxscore['teams']['home']['players'].values(),
+        *boxscore['teams']['away']['players'].values()
+    )
+
+    skaters: List[Skater] = []
+    goalies: List[Goalie] = []
+
     for player in players:
         with suppress(KeyError):
             stats = player['stats']['skaterStats']
 
-            yield Skater(
+            skaters.append(Skater(
                 player['person']['firstName'],
                 player['person']['lastName'],
                 stats['goals'],
@@ -170,22 +164,23 @@ def parse_players_skaters(players: Iterable[Mapping]) -> Iterable[Skater]:
                 stats['plusMinus'],
                 stats['shots'],
                 stats['hits'],
-                stats['penaltyMinutes']
-            )
+                stats['penaltyMinutes'],
+                player['person']['nationality']
+            ))
 
-
-def parse_players_goalies(players: Iterable[Mapping]) -> Iterable[Goalie]:
-    for player in players:
         with suppress(KeyError):
             stats = player['stats']['goalieStats']
 
-            yield Goalie(
+            goalies.append(Goalie(
                 player['person']['firstName'],
                 player['person']['lastName'],
                 stats['savePercentage'] / 100,
                 _parse_toi(stats['timeOnIce']),
-                stats['shots']
-            )
+                stats['shots'],
+                player['person']['nationality']
+            ))
+
+    return skaters, goalies
 
 
 def parse_schedule_upcoming(schedule: Mapping,

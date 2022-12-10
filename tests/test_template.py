@@ -59,13 +59,13 @@ class TestParser(unittest.TestCase):
             Game(
                 'ARI', 1, 'COL', 2, True, 1, 'https://recap/2',
                 sorted([
-                    Skater('A', 'B', 0, 1, 100, 1, 1, 1, 2),
-                    Skater('C', 'D', 0, 0, 200, 1, 1, 1, 2),
-                    Skater('E', 'F', 1, 0, 300, 0, 0, 0, 0)
+                    Skater('A', 'B', 0, 1, 100, 1, 1, 1, 2, 'FIN'),
+                    Skater('C', 'D', 0, 0, 200, 1, 1, 1, 2, 'FIN'),
+                    Skater('E', 'F', 1, 0, 300, 0, 0, 0, 0, 'FIN'),
                 ], reverse=True),
                 sorted([
-                    Goalie('G', 'H', 0.81123, 40 * 60, 10),
-                    Goalie('I', 'J', 0.92567, 60 * 60, 20)
+                    Goalie('G', 'H', 0.81123, 40 * 60, 10, 'FIN'),
+                    Goalie('I', 'J', 0.92567, 60 * 60, 20, 'FIN'),
                 ], reverse=True)
             ),
         ], reverse=True)
@@ -77,7 +77,7 @@ class TestParser(unittest.TestCase):
 
         schedule = [
             ('2.12. 21:00', 'home1', 'away1'),
-            ('3.13. 22:00', 'home2', 'away2')
+            ('3.13. 22:00', 'home2', 'away2'),
         ]
 
         result = html.render(template, games, highlights, schedule, '1.12.2022 12:34:56')

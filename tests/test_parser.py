@@ -35,27 +35,20 @@ class TestParser(unittest.TestCase):
         actual_highlights = list(parser.parse_schedule_highlights(data.schedule, {'perry', 'stamkos'}))
         self.assertListEqual(actual_highlights, expected_highlights)
 
-    def test_parse_boxscore_players(self):
-        players = list(parser.parse_boxscore_players(data.boxscore))
-        self.assertEqual(len(players), 44)
-
     def test_parse_toi(self):
         self.assertEqual(parser._parse_toi('0:0'), 0)
         self.assertEqual(parser._parse_toi('12:34'), 754)
         self.assertEqual(parser._parse_toi('100:1'), 6001)
 
-    def test_parse_players_skaters(self):
-        players = parser.parse_boxscore_players(data.boxscore)
-        skaters = list(parser.parse_players_skaters(players))
+    def test_parse_boxscore_players(self):
+        skaters, goalies = parser.parse_boxscore_players(data.boxscore)
+
         self.assertEqual(len(skaters), 36)
-        self.assertEqual(repr(skaters[0]), "Skater(first_name='Jack', last_name='Quinn', g=0, a=1, toi=817, plusminus=-1, shots=1, hits=0, pim=0)")
+        self.assertEqual(repr(skaters[0]), "Skater(first_name='Jack', last_name='Quinn', g=0, a=1, toi=817, plusminus=-1, shots=1, hits=0, pim=0, nationality='CAN')")
         self.assertEqual(skaters[-1].last_name, 'Makar')
 
-    def test_parse_players_goalies(self):
-        players = parser.parse_boxscore_players(data.boxscore)
-        goalies = list(parser.parse_players_goalies(players))
         self.assertEqual(len(goalies), 2)
-        self.assertEqual(repr(goalies[0]), "Goalie(first_name='Ukko-Pekka', last_name='Luukkonen', spct=0.8484848484848484, toi=3574, shots=33)")
+        self.assertEqual(repr(goalies[0]), "Goalie(first_name='Ukko-Pekka', last_name='Luukkonen', spct=0.8484848484848484, toi=3574, shots=33, nationality='FIN')")
         self.assertEqual(goalies[1].last_name, 'Georgiev')
 
     def test_parse_upcoming(self):
