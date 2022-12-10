@@ -62,13 +62,13 @@ class TestParser(unittest.TestCase):
                     Skater('A', 'B', 0, 1, 100, 1, 1, 1, 2, 'FIN'),
                     Skater('C', 'D', 0, 0, 200, 1, 1, 1, 2, 'FIN'),
                     Skater('E', 'F', 1, 0, 300, 0, 0, 0, 0, 'FIN'),
-                ], reverse=True),
+                ]),
                 sorted([
                     Goalie('G', 'H', 0.81123, 40 * 60, 10, 'FIN'),
                     Goalie('I', 'J', 0.92567, 60 * 60, 20, 'FIN'),
-                ], reverse=True)
+                ])
             ),
-        ], reverse=True)
+        ])
 
         highlights = [
             ('title1', 'https://highlight/1'),

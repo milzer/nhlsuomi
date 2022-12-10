@@ -7,7 +7,7 @@ class TestPlayerData(unittest.TestCase):
     def test_lt(self):
         p1 = Skater('1g', '1g',1, 0, 0, 0, 0, 0, 0, 'FIN')
         p2 = Skater('1a', '1a', 0, 1, 0, 0, 0, 0, 0, 'FIN')
-        self.assertLess(p2, p1)
+        self.assertLess(p1, p2)
 
     def test_ordering(self):
         players = [
@@ -22,7 +22,7 @@ class TestPlayerData(unittest.TestCase):
             Skater('toi', 'toi', 0, 0, 1, 0, 0, 0, 0, 'FIN'),
         ]
 
-        sorted_names = [p.last_name for p in sorted(players, reverse=True)]
+        sorted_names = [p.last_name for p in sorted(players)]
 
         self.assertListEqual(
             sorted_names,

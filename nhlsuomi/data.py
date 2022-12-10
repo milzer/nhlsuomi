@@ -37,7 +37,7 @@ class Skater:
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Skater):
-            return self.value() < other.value()
+            return self.value() >= other.value()
         else:
             return NotImplemented
 
@@ -80,7 +80,7 @@ class Goalie:
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Goalie):
-            return self.value() < other.value()
+            return self.value() >= other.value()
         else:
             return NotImplemented
 
@@ -107,7 +107,7 @@ class Game:
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Game):
-            return self.value() < other.value()
+            return self.value() >= other.value()
         else:
             return NotImplemented
 
@@ -117,8 +117,6 @@ class Game:
             for skater in self.skaters
             if (skater.g + skater.a) > 0
         ]
-
-        # TODO: goalie values?
 
         return (
             self.final,

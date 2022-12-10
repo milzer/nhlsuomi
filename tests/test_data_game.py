@@ -29,11 +29,11 @@ game4 = Game('COL',  5, 'TBL',  0, False, 4, None, [
 
 class TestGameData(unittest.TestCase):
     def test_lt(self):
-        self.assertLess(game1, game2)
-        self.assertLess(game1, game3)
-        self.assertLess(game3, game2)
+        self.assertLess(game2, game1)
+        self.assertLess(game3, game1)
+        self.assertLess(game2, game3)
 
     def test_ordering(self):
         games = [game1, game2, game3, game4]
-        sorted_ids = [g.gamecenter_id for g in sorted(games, reverse=True)]
+        sorted_ids = [g.gamecenter_id for g in sorted(games)]
         self.assertListEqual(sorted_ids, [2, 3, 1, 4])
