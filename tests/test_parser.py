@@ -1,6 +1,6 @@
 import unittest
 
-from nhlsuomi.data import Game
+from nhlsuomi.data import Game, Goalie, Skater
 from nhlsuomi.NHL import parser
 from tests import data
 
@@ -44,12 +44,12 @@ class TestParser(unittest.TestCase):
         skaters, goalies = parser.parse_boxscore_players(data.boxscore)
 
         self.assertEqual(len(skaters), 36)
-        self.assertEqual(repr(skaters[0]), "Skater(first_name='Jack', last_name='Quinn', g=0, a=1, toi=817, plusminus=-1, shots=1, hits=0, pim=0, nationality='CAN')")
-        self.assertEqual(skaters[-1].last_name, 'Makar')
+        self.assertEqual(skaters[0], Skater(first_name='Nathan', last_name='MacKinnon', g=2, a=3, toi=1509, plusminus=1, shots=8, hits=0, pim=2, nationality='CAN'))
+        self.assertEqual(skaters[-1].last_name, 'Megna')
 
         self.assertEqual(len(goalies), 2)
-        self.assertEqual(repr(goalies[0]), "Goalie(first_name='Ukko-Pekka', last_name='Luukkonen', spct=0.8484848484848484, toi=3574, shots=33, nationality='FIN')")
-        self.assertEqual(goalies[1].last_name, 'Georgiev')
+        self.assertEqual(goalies[0], Goalie(first_name='Alexandar', last_name='Georgiev', spct=0.8571428571428571, toi=3600, shots=28, nationality='RUS'))
+        self.assertEqual(goalies[1].last_name, 'Luukkonen')
 
     def test_parse_upcoming(self):
         result = list(parser.parse_schedule_upcoming(data.upcoming_schedule, 'Europe/Helsinki', 18, 22))

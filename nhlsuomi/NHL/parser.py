@@ -180,7 +180,7 @@ def parse_boxscore_players(boxscore: Mapping) -> Tuple[List[Skater], List[Goalie
                 player['person']['nationality']
             ))
 
-    return skaters, goalies
+    return sorted(skaters), sorted(goalies)
 
 
 def parse_schedule_upcoming(schedule: Mapping,
