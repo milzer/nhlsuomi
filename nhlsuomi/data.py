@@ -20,6 +20,7 @@ class Skater:
     shots: int
     hits: int
     pim: int
+    nationality: str
 
     @property
     def columns(self) -> Tuple[str, str, str, str, int, int, int, int]:
@@ -65,6 +66,7 @@ class Goalie:
     spct: float
     toi: int
     shots: int
+    nationality: str
 
     @property
     def columns(self) -> Tuple[str, str, str, str, int]:
