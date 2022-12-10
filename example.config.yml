@@ -1,0 +1,22 @@
+template: template.html
+output: nhl.html
+jsondump: dump.json
+nationalities: [FIN]
+date_offset: -1
+
+# 0 days = schedule disabled
+schedule_days: 21
+schedule_timezone: Europe/Helsinki
+schedule_datetime_format: '%d.%m. %H:%M'
+
+# game starting hours in local time
+schedule_hours_from: 6
+schedule_hours_to: 23
+
+# min goals and points for highlight skaters
+highlight_skater_g: 3
+highlight_skater_p: 4
+
+# time to wait before refreshing when there are ongoing games
+refresh_minutes: 20
+quit_minutes: 360

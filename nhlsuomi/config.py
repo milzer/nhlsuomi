@@ -20,6 +20,8 @@ class Config:
     schedule_datetime_format: str = '%d.%m. %H:%M'
     schedule_hours_from: int = 6
     schedule_hours_to: int = 23
+    highlight_skater_g: int = 3
+    highlight_skater_p: int = 4
     refresh_minutes: int = 20
     quit_minutes: int = 360
 

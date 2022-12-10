@@ -17,6 +17,10 @@ class TestParser(unittest.TestCase):
                 {{title}} {{url}}
             {% endfor %}
 
+            {% for skater in highlight_skaters %}
+                {{skater.first_name}} {{skater.last_name}} {{skater.g}}+{{skater.a}}
+            {% endfor %}
+
             {% for game in games %}
                 {{game.home_team}} {{game.home_score}} - {{game.away_score}} {{game.away_team}}
                 {% for skater in game.skaters %}
@@ -41,6 +45,8 @@ class TestParser(unittest.TestCase):
             1.12.2022 12:34:56
             title1 https://highlight/1
             title2 https://highlight/2
+            A B 5+1
+            C D 1+4
             ARI 1 - 2 COL
             ('E', 'F', '1+0', '05:00', 0, 0, 0, 0)
             ('A', 'B', '0+1', '01:40', 1, 1, 1, 2)
@@ -75,11 +81,16 @@ class TestParser(unittest.TestCase):
             ('title2', 'https://highlight/2'),
         ]
 
+        highlight_skaters = [
+            Skater('A', 'B', 5, 1, 1, 1, 1, 1, 1, 'CAN'),
+            Skater('C', 'D', 1, 4, 1, 1, 1, 1, 1, 'SWE'),
+        ]
+
         schedule = [
             ('2.12. 21:00', 'home1', 'away1'),
             ('3.13. 22:00', 'home2', 'away2'),
         ]
 
-        result = html.render(template, games, highlights, schedule, '1.12.2022 12:34:56')
+        result = html.render(template, games, highlights, highlight_skaters, schedule, '1.12.2022 12:34:56')
 
         self.assertEqual(result, expected)
