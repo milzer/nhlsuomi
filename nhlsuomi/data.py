@@ -111,7 +111,9 @@ class Game:
         else:
             return NotImplemented
 
-    def value(self) -> Tuple[bool, int, int, int]:
+    def value(self) -> Tuple[bool, int, int, int, int]:
+        goal_scorers = sum(skater.g > 0 for skater in self.skaters)
+
         points = [
             skater.g + skater.a
             for skater in self.skaters
@@ -120,6 +122,7 @@ class Game:
 
         return (
             not self.final,
+            -goal_scorers,
             -len(points),
             -sum(points),
             -(len(self.skaters) + len(self.goalies))
