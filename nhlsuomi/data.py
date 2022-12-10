@@ -37,20 +37,20 @@ class Skater:
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Skater):
-            return self.value() >= other.value()
+            return self.value() < other.value()
         else:
             return NotImplemented
 
     def value(self) -> Tuple[int, int, int, int, int, int, int, int]:
         return (
-            self.g + self.a,
-            self.g,
-            self.a,
-            self.plusminus,
-            self.toi,
-            self.shots,
-            self.hits,
-            self.pim
+            -(self.g + self.a),
+            -self.g,
+            -self.a,
+            -self.plusminus,
+            -self.toi,
+            -self.shots,
+            -self.hits,
+            -self.pim
         )
 
     @property
@@ -80,15 +80,15 @@ class Goalie:
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Goalie):
-            return self.value() >= other.value()
+            return self.value() < other.value()
         else:
             return NotImplemented
 
     def value(self) -> Tuple[bool, int, int]:
         return (
-            self.toi > 40 * 60,
-            int(self.spct * 1000),
-            self.shots
+            not (self.toi > (40 * 60)),
+            -int(self.spct * 1000),
+            -self.shots
         )
 
 
@@ -107,7 +107,7 @@ class Game:
 
     def __lt__(self, other) -> bool:
         if isinstance(other, Game):
-            return self.value() >= other.value()
+            return self.value() < other.value()
         else:
             return NotImplemented
 
@@ -119,10 +119,10 @@ class Game:
         ]
 
         return (
-            self.final,
-            len(points),
-            sum(points),
-            len(self.skaters) + len(self.goalies)
+            not self.final,
+            -len(points),
+            -sum(points),
+            -(len(self.skaters) + len(self.goalies))
         )
 
     @property
