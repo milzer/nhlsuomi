@@ -1,18 +1,18 @@
-from itertools import chain
-from typing import Union, List
+import argparse
 import dataclasses
 import json
 import pathlib
 import time
-import argparse
 from datetime import datetime, timedelta
+from itertools import chain
+from typing import List, Union
 
 from nhlsuomi import VERSION
-from nhlsuomi.logging import logger
-from nhlsuomi.NHL import API, parser
-from nhlsuomi.html import render
 from nhlsuomi.config import Config
 from nhlsuomi.data import Skater
+from nhlsuomi.html import render
+from nhlsuomi.logging import logger
+from nhlsuomi.NHL import API, parser
 
 
 def loglevel(value: str) -> Union[int,str]:
@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     config = Config.load(args.config)
 
-    games_date = datetime(2022, 12, 24).date() + timedelta(config.date_offset)
+    games_date = datetime.today().date() + timedelta(config.date_offset)
 
     if config.schedule_days:
         schedule_date = games_date + timedelta(1)
