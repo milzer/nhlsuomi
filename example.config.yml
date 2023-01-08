@@ -1,6 +1,6 @@
 template: template.html
 output: nhl.html
-jsondump: dump.json
+jsondump:
 nationalities: [FIN]
 date_offset: -1
 
@@ -11,7 +11,7 @@ schedule_datetime_format: '%d.%m. %H:%M'
 
 # game starting hours in local time
 schedule_hours_from: 6
-schedule_hours_to: 23
+schedule_hours_to: 22
 
 # min goals and points for highlight skaters
 highlight_skater_g: 3

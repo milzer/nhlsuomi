@@ -8,3 +8,4 @@ __pycache__/
 .winvenv/
 config.yml
 nhl.html
+*.json
