@@ -39,7 +39,7 @@ class TestGameData(unittest.TestCase):
     def test_lt(self):
         self.assertLess(game2, game1)
         self.assertLess(game3, game1)
-        self.assertLess(game2, game3)
+        self.assertLess(game3, game2)
         self.assertLess(game1, game0)
         self.assertLess(game2, game0)
         self.assertLess(game3, game0)
@@ -48,4 +48,4 @@ class TestGameData(unittest.TestCase):
     def test_ordering(self):
         games = sorted([game0, game1, game2, game3, game4])
         sorted_ids = [g.gamecenter_id for g in games]
-        self.assertEqual(sorted_ids, [4, 2, 3, 1, 0])
+        self.assertEqual(sorted_ids, [3, 4, 2, 1, 0])
