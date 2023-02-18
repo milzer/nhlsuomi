@@ -47,7 +47,11 @@ def _parse_best_playback_url(playbacks: List[Mapping]) -> Optional[str]:
 
 
 def _parse_recap_url(game: Mapping) -> Optional[str]:
-    epg = game['content']['media']['epg']
+    try:
+        epg = game['content']['media']['epg']
+    except KeyError:
+        # content.media is not always present, just ignore those cases
+        return None
 
     try:
         # find the recap content
@@ -103,8 +107,8 @@ def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> 
 
         try:
             items = game['content']['highlights']['gameCenter']['items']
-        except Exception:
-            logger.exception('Highlight items not found')
+        except KeyError:
+            # content.highlights is not always present, just ignore those cases
             return []
 
         for item in items:
