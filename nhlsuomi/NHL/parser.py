@@ -133,12 +133,14 @@ def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> 
             except Exception:
                 logger.exception('Playback parsing failed')
 
-    # sort by id
-    yield from (
-        (title, url)
+    # use dict sorted by id so only the latest highlight is returned in case
+    # of duplicate titles
+
+    yield from {
+        title: url
         for (_, title, url)
         in sorted(highlights)
-    )
+    }.items()
 
 
 def _parse_toi(toi: str) -> int:
