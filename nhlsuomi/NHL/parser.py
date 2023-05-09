@@ -93,6 +93,9 @@ def parse_schedule_games(schedule: Mapping) -> Iterable[Game]:
 
 
 def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> Iterable[Tuple[str, str]]:
+    if not keywords:
+        return []
+
     keywords = {
         keyword.strip().casefold()
         for keyword
