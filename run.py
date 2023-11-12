@@ -12,7 +12,7 @@ from nhlsuomi.config import Config
 from nhlsuomi.data import Skater
 from nhlsuomi.html import render
 from nhlsuomi.logging import logger
-from nhlsuomi.NHL import API, parser
+from nhlsuomi.nhl import api, parser
 
 
 def loglevel(value: str) -> Union[int,str]:
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     if config.schedule_days:
         schedule_date = games_date + timedelta(1)
-        upcoming_schedule = API.get_schedule(schedule_date, config.schedule_days)
+        upcoming_schedule = api.get_schedule(schedule_date, config.schedule_days)
         upcoming_games = list(parser.parse_schedule_upcoming(
             upcoming_schedule,
             config.schedule_timezone,
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     start_time = time.time()
 
     while True:
-        schedule = API.get_schedule(games_date)
+        schedule = api.get_schedule(games_date)
         games = list(parser.parse_schedule_games(schedule))
 
         ongoing_games = [game.final for game in games].count(False)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
                     if not config.nationalities or player.nationality in config.nationalities
                 ))
 
-            boxscore = API.get_boxscore(game.gamecenter_id)
+            boxscore = api.get_boxscore(game.gamecenter_id)
             skaters, goalies = parser.parse_boxscore_players(boxscore)
             game.skaters = filter_and_sort_players(skaters)
             game.goalies = filter_and_sort_players(goalies)

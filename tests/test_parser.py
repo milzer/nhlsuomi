@@ -1,7 +1,7 @@
 import unittest
 
 from nhlsuomi.data import Game, Goalie, Skater
-from nhlsuomi.NHL import parser
+from nhlsuomi.nhl import parser
 from tests import data
 
 
