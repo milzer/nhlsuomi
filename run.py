@@ -7,7 +7,6 @@ from datetime import datetime, timedelta
 from itertools import chain
 from typing import List, Union
 
-from nhlsuomi import VERSION
 from nhlsuomi.config import Config
 from nhlsuomi.data import Skater
 from nhlsuomi.html import render
@@ -29,7 +28,6 @@ if __name__ == '__main__':
     args = argparser.parse_args()
 
     logger.setLevel(args.loglevel)
-    logger.info(f'NHLSuomi v{VERSION}')
 
     config = Config.load(args.config)
 
