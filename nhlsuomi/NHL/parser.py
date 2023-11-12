@@ -7,7 +7,9 @@ from nhlsuomi.data import Game, Goalie, Skater
 from nhlsuomi.logging import logger
 
 
-def _parse_schedule_games(schedule: Mapping, state_filter: Optional[str] = None) -> Iterable[Tuple[Mapping, str]]:
+def _parse_schedule_games(
+    schedule: Mapping, state_filter: Optional[str] = None
+) -> Iterable[Tuple[Mapping, str]]:
     for date in schedule['dates']:
         for game in date['games']:
             detailed_state = game['status']['detailedState']
@@ -34,10 +36,12 @@ def _parse_best_playback_url(playbacks: List[Mapping]) -> Optional[str]:
     # assuming it's the best quality
     try:
         with suppress(StopIteration):
-            best_playback = next(filter(
-                lambda x: x['name'].startswith('FLASH_'),
-                reversed(playbacks)
-            ))
+            best_playback = next(
+                filter(
+                    lambda x: x['name'].startswith('FLASH_'),
+                    reversed(playbacks),
+                )
+            )
             return best_playback['url']
 
     except Exception:
@@ -55,16 +59,10 @@ def _parse_recap_url(game: Mapping) -> Optional[str]:
 
     try:
         # find the recap content
-        recap = next(filter(
-            lambda x: x['title'] == 'Recap',
-            epg
-        ))
+        recap = next(filter(lambda x: x['title'] == 'Recap', epg))
 
         # just take the first item with 'video' type
-        item = next(filter(
-            lambda x: x['type'] == 'video',
-            recap['items']
-        ))
+        item = next(filter(lambda x: x['type'] == 'video', recap['items']))
 
         return _parse_best_playback_url(item['playbacks'])
 
@@ -88,19 +86,17 @@ def parse_schedule_games(schedule: Mapping) -> Iterable[Game]:
             game['teams']['away']['score'],
             state == 'Final',
             game['gamePk'],
-            recap_url
+            recap_url,
         )
 
 
-def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> Iterable[Tuple[str, str]]:
+def parse_schedule_highlights(
+    schedule: Mapping, keywords: Set[str] = set()
+) -> Iterable[Tuple[str, str]]:
     if not keywords:
         return []
 
-    keywords = {
-        keyword.strip().casefold()
-        for keyword
-        in keywords
-    }
+    keywords = {keyword.strip().casefold() for keyword in keywords}
 
     highlights = []
 
@@ -139,11 +135,7 @@ def parse_schedule_highlights(schedule: Mapping, keywords: Set[str] = set()) -> 
     # use dict sorted by id so only the latest highlight is returned in case
     # of duplicate titles
 
-    yield from {
-        title: url
-        for (_, title, url)
-        in sorted(highlights)
-    }.items()
+    yield from {title: url for (_, title, url) in sorted(highlights)}.items()
 
 
 def _parse_toi(toi: str) -> int:
@@ -151,10 +143,12 @@ def _parse_toi(toi: str) -> int:
     return int(mm) * 60 + int(ss)
 
 
-def parse_boxscore_players(boxscore: Mapping) -> Tuple[List[Skater], List[Goalie]]:
+def parse_boxscore_players(
+    boxscore: Mapping
+) -> Tuple[List[Skater], List[Goalie]]:
     players = (
         *boxscore['teams']['home']['players'].values(),
-        *boxscore['teams']['away']['players'].values()
+        *boxscore['teams']['away']['players'].values(),
     )
 
     skaters: List[Skater] = []
@@ -164,39 +158,45 @@ def parse_boxscore_players(boxscore: Mapping) -> Tuple[List[Skater], List[Goalie
         with suppress(KeyError):
             stats = player['stats']['skaterStats']
 
-            skaters.append(Skater(
-                player['person']['firstName'],
-                player['person']['lastName'],
-                stats['goals'],
-                stats['assists'],
-                _parse_toi(stats['timeOnIce']),
-                stats['plusMinus'],
-                stats['shots'],
-                stats['hits'],
-                stats['penaltyMinutes'],
-                player['person']['nationality']
-            ))
+            skaters.append(
+                Skater(
+                    player['person']['firstName'],
+                    player['person']['lastName'],
+                    stats['goals'],
+                    stats['assists'],
+                    _parse_toi(stats['timeOnIce']),
+                    stats['plusMinus'],
+                    stats['shots'],
+                    stats['hits'],
+                    stats['penaltyMinutes'],
+                    player['person']['nationality'],
+                )
+            )
 
         with suppress(KeyError):
             stats = player['stats']['goalieStats']
 
-            goalies.append(Goalie(
-                player['person']['firstName'],
-                player['person']['lastName'],
-                stats['savePercentage'] / 100,
-                _parse_toi(stats['timeOnIce']),
-                stats['shots'],
-                player['person']['nationality']
-            ))
+            goalies.append(
+                Goalie(
+                    player['person']['firstName'],
+                    player['person']['lastName'],
+                    stats['savePercentage'] / 100,
+                    _parse_toi(stats['timeOnIce']),
+                    stats['shots'],
+                    player['person']['nationality'],
+                )
+            )
 
     return sorted(skaters), sorted(goalies)
 
 
-def parse_schedule_upcoming(schedule: Mapping,
-                            timezone: str,
-                            from_h: int,
-                            to_h: int,
-                            format: str = '%d.%m. %H:%M') -> Iterable[Tuple[str, str, str]]:
+def parse_schedule_upcoming(
+    schedule: Mapping,
+    timezone: str,
+    from_h: int,
+    to_h: int,
+    format: str = '%d.%m. %H:%M',
+) -> Iterable[Tuple[str, str, str]]:
     localizer = utils.dt_localizer(timezone)
 
     for game, _ in _parse_schedule_games(schedule, state_filter='Scheduled'):

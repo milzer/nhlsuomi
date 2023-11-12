@@ -4,7 +4,9 @@ import sys
 
 class Formatter(logging.Formatter):
     def __init__(self):
-        super().__init__('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        super().__init__(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
 
     def format(self, record: logging.LogRecord) -> str:
         if record.exc_info:
@@ -20,9 +22,11 @@ logger = logging.getLogger('nhlsuomi')
 logger.addHandler(handler)
 
 
-def _excepthook(exc_type, exc_value, exc_traceback = None):
+def _excepthook(exc_type, exc_value, exc_traceback=None):
     if issubclass(exc_type, Exception):
-        logger.error('Uncaught exception', exc_info=(exc_type, exc_value, exc_traceback))
+        logger.error(
+            'Uncaught exception', exc_info=(exc_type, exc_value, exc_traceback)
+        )
     else:
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
 

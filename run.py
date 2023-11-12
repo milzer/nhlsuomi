@@ -14,7 +14,7 @@ from nhlsuomi.logging import logger
 from nhlsuomi.nhl import api, parser
 
 
-def loglevel(value: str) -> Union[int,str]:
+def loglevel(value: str) -> Union[int, str]:
     try:
         return int(value)
     except ValueError:
@@ -35,14 +35,18 @@ if __name__ == '__main__':
 
     if config.schedule_days:
         schedule_date = games_date + timedelta(1)
-        upcoming_schedule = api.get_schedule(schedule_date, config.schedule_days)
-        upcoming_games = list(parser.parse_schedule_upcoming(
-            upcoming_schedule,
-            config.schedule_timezone,
-            config.schedule_hours_from,
-            config.schedule_hours_to,
-            config.schedule_datetime_format
-        ))
+        upcoming_schedule = api.get_schedule(
+            schedule_date, config.schedule_days
+        )
+        upcoming_games = list(
+            parser.parse_schedule_upcoming(
+                upcoming_schedule,
+                config.schedule_timezone,
+                config.schedule_hours_from,
+                config.schedule_hours_to,
+                config.schedule_datetime_format,
+            )
+        )
     else:
         upcoming_games = []
 
@@ -61,10 +65,14 @@ if __name__ == '__main__':
                 continue
 
             def filter_and_sort_players(players: List) -> List:
-                return sorted((
-                    player for player in players
-                    if not config.nationalities or player.nationality in config.nationalities
-                ))
+                return sorted(
+                    (
+                        player
+                        for player in players
+                        if not config.nationalities
+                        or player.nationality in config.nationalities
+                    )
+                )
 
             boxscore = api.get_boxscore(game.gamecenter_id)
             skaters, goalies = parser.parse_boxscore_players(boxscore)
@@ -85,11 +93,21 @@ if __name__ == '__main__':
 
         games = sorted(games)
 
-        highlight_keywords = set(chain.from_iterable(game.last_names for game in games))
-        highlights = list(parser.parse_schedule_highlights(schedule, highlight_keywords))
+        highlight_keywords = set(
+            chain.from_iterable(game.last_names for game in games)
+        )
+        highlights = list(
+            parser.parse_schedule_highlights(schedule, highlight_keywords)
+        )
 
         template = pathlib.Path(config.template).read_text()
-        html = render(template, games, highlights, sorted(highlight_skaters), upcoming_games)
+        html = render(
+            template,
+            games,
+            highlights,
+            sorted(highlight_skaters),
+            upcoming_games,
+        )
 
         pathlib.Path(config.output).write_text(html)
 
@@ -107,10 +125,12 @@ if __name__ == '__main__':
     if config.jsondump:
         dumpfile = pathlib.Path(config.jsondump)
         logger.info(f'Dump JSON to {dumpfile.resolve()}')
-        json_text = json.dumps({
-            'date': datetime.now().strftime('%Y-%m-%d'),
-            'games': [dataclasses.asdict(game) for game in games],
-            'highlights': highlights,
-            'schedule': upcoming_games
-        })
+        json_text = json.dumps(
+            {
+                'date': datetime.now().strftime('%Y-%m-%d'),
+                'games': [dataclasses.asdict(game) for game in games],
+                'highlights': highlights,
+                'schedule': upcoming_games,
+            }
+        )
         dumpfile.write_text(json_text)

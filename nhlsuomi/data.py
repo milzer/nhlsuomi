@@ -32,7 +32,7 @@ class Skater:
             self.plusminus,
             self.shots,
             self.hits,
-            self.pim
+            self.pim,
         )
 
     def __lt__(self, other) -> bool:
@@ -49,7 +49,7 @@ class Skater:
             -self.toi,
             -self.shots,
             -self.hits,
-            -self.pim
+            -self.pim,
         )
 
     @property
@@ -74,7 +74,7 @@ class Goalie:
             self.last_name,
             f'{self.spct:.1%}',
             format_toi(self.toi),
-            self.shots
+            self.shots,
         )
 
     def __lt__(self, other) -> bool:
@@ -87,7 +87,7 @@ class Goalie:
         return (
             not (self.toi > (40 * 60)),
             -int(self.spct * 1000),
-            -self.shots
+            -self.shots,
         )
 
 
@@ -111,7 +111,7 @@ class Game:
             return NotImplemented
 
     def value(self) -> Tuple[bool, int, int, int, int]:
-        goals = sum(skater.g ** 2  for skater in self.skaters)
+        goals = sum(skater.g**2 for skater in self.skaters)
 
         points = [
             skater.g + skater.a
@@ -124,13 +124,12 @@ class Game:
             -goals,
             -len(points),
             -sum(points),
-            -(len(self.skaters) + len(self.goalies))
+            -(len(self.skaters) + len(self.goalies)),
         )
 
     @property
     def last_names(self) -> Set[str]:
         return {
             getattr(player, 'last_name')
-            for player
-            in (*self.skaters, *self.goalies)
+            for player in (*self.skaters, *self.goalies)
         }

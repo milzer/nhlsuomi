@@ -32,18 +32,20 @@ def _fetch_json(url: str, *, retries: int = 3) -> Mapping:
 def get_schedule(date: Optional[date] = None, days: int = 1) -> Mapping:
     args = {
         'gameType': ','.join(('R', 'P', 'A', 'WCOH_PRELIM', 'WCOH_FINAL')),
-        'expand' : ','.join((
-            'schedule.teams',
-            'schedule.game.content.highlights.all',
-            'schedule.game.content.media.epg'
-        ))
+        'expand': ','.join(
+            (
+                'schedule.teams',
+                'schedule.game.content.highlights.all',
+                'schedule.game.content.media.epg',
+            )
+        ),
     }
 
     if date:
         if days > 1:
             args['startDate'] = date.isoformat()
 
-            date += timedelta(days-1)
+            date += timedelta(days - 1)
             args['endDate'] = date.isoformat()
         else:
             args['date'] = date.isoformat()

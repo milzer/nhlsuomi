@@ -7,7 +7,8 @@ from nhlsuomi.data import Game, Goalie, Skater
 
 class TestParser(unittest.TestCase):
     def test_template(self):
-        template = dedent('''
+        template = dedent(
+            """
             <html>
             <body>
 
@@ -37,9 +38,11 @@ class TestParser(unittest.TestCase):
 
             </body>
             </html>
-        ''')
+        """
+        )
 
-        expected = dedent('''
+        expected = dedent(
+            """
             <html>
             <body>
             1.12.2022 12:34:56
@@ -58,23 +61,36 @@ class TestParser(unittest.TestCase):
             3.13. 22:00 - away2@home2
             </body>
             </html>
-        ''').strip()
+        """
+        ).strip()
 
-        games = sorted([
-            Game('BOS', 2, 'BUF', 1, True, 1, 'https://recap/1'),
-            Game(
-                'ARI', 1, 'COL', 2, True, 1, 'https://recap/2',
-                sorted([
-                    Skater('A', 'B', 0, 1, 100, 1, 1, 1, 2, 'FIN'),
-                    Skater('C', 'D', 0, 0, 200, 1, 1, 1, 2, 'FIN'),
-                    Skater('E', 'F', 1, 0, 300, 0, 0, 0, 0, 'FIN'),
-                ]),
-                sorted([
-                    Goalie('G', 'H', 0.81123, 40 * 60, 10, 'FIN'),
-                    Goalie('I', 'J', 0.92567, 60 * 60, 20, 'FIN'),
-                ])
-            ),
-        ])
+        games = sorted(
+            [
+                Game('BOS', 2, 'BUF', 1, True, 1, 'https://recap/1'),
+                Game(
+                    'ARI',
+                    1,
+                    'COL',
+                    2,
+                    True,
+                    1,
+                    'https://recap/2',
+                    sorted(
+                        [
+                            Skater('A', 'B', 0, 1, 100, 1, 1, 1, 2, 'FIN'),
+                            Skater('C', 'D', 0, 0, 200, 1, 1, 1, 2, 'FIN'),
+                            Skater('E', 'F', 1, 0, 300, 0, 0, 0, 0, 'FIN'),
+                        ]
+                    ),
+                    sorted(
+                        [
+                            Goalie('G', 'H', 0.81123, 40 * 60, 10, 'FIN'),
+                            Goalie('I', 'J', 0.92567, 60 * 60, 20, 'FIN'),
+                        ]
+                    ),
+                ),
+            ]
+        )
 
         highlights = [
             ('title1', 'https://highlight/1'),
@@ -91,6 +107,13 @@ class TestParser(unittest.TestCase):
             ('3.13. 22:00', 'home2', 'away2'),
         ]
 
-        result = html.render(template, games, highlights, highlight_skaters, schedule, '1.12.2022 12:34:56')
+        result = html.render(
+            template,
+            games,
+            highlights,
+            highlight_skaters,
+            schedule,
+            '1.12.2022 12:34:56',
+        )
 
         self.assertEqual(result, expected)

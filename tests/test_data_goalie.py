@@ -23,14 +23,8 @@ class TestGoalieData(unittest.TestCase):
 
         sorted_names = [p.last_name for p in sorted(Goalies)]
 
-        self.assertListEqual(
-            sorted_names,
-            ['c', 'b', 'a', 'd']
-        )
+        self.assertListEqual(sorted_names, ['c', 'b', 'a', 'd'])
 
     def test_columns(self):
         g = Goalie('first', 'last', 0.8478, 3457, 15, 'FIN')
-        self.assertEqual(
-            g.columns,
-            ('first', 'last', '84.8%', '57:37', 15)
-        )
+        self.assertEqual(g.columns, ('first', 'last', '84.8%', '57:37', 15))
