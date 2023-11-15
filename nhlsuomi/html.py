@@ -9,16 +9,14 @@ from nhlsuomi.data import Game, Skater
 def render(
     template: str,
     games: Iterable[Game],
-    highlights: Iterable[Tuple[str, str]],
-    highlight_skaters: Iterable[Skater],
+    skater_highlights: Iterable[Skater],
     schedule: Iterable[Tuple[str, str, str]],
     timestamp: Optional[str] = None,
 ) -> str:
     html = Template(template).render(
         timestamp=timestamp or datetime.now().strftime('%d.%m.%Y %H:%M:%S'),
         games=games,
-        highlights=highlights,
-        highlight_skaters=highlight_skaters,
+        highlight_skaters=skater_highlights,
         schedule=schedule,
     )
 

@@ -14,10 +14,6 @@ class TestParser(unittest.TestCase):
 
             {{timestamp}}
 
-            {% for title, url in highlights %}
-                {{title}} {{url}}
-            {% endfor %}
-
             {% for skater in highlight_skaters %}
                 {{skater.first_name}} {{skater.last_name}} {{skater.g}}+{{skater.a}}
             {% endfor %}
@@ -46,8 +42,6 @@ class TestParser(unittest.TestCase):
             <html>
             <body>
             1.12.2022 12:34:56
-            title1 https://highlight/1
-            title2 https://highlight/2
             A B 5+1
             C D 1+4
             ARI 1 - 2 COL
@@ -92,12 +86,7 @@ class TestParser(unittest.TestCase):
             ]
         )
 
-        highlights = [
-            ('title1', 'https://highlight/1'),
-            ('title2', 'https://highlight/2'),
-        ]
-
-        highlight_skaters = [
+        skater_highlights = [
             Skater('A', 'B', 5, 1, 1, 1, 1, 1, 1, 'CAN'),
             Skater('C', 'D', 1, 4, 1, 1, 1, 1, 1, 'SWE'),
         ]
@@ -110,8 +99,7 @@ class TestParser(unittest.TestCase):
         result = html.render(
             template,
             games,
-            highlights,
-            highlight_skaters,
+            skater_highlights,
             schedule,
             '1.12.2022 12:34:56',
         )

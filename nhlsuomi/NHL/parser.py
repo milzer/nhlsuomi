@@ -1,6 +1,6 @@
 from contextlib import suppress
 from datetime import datetime
-from typing import Iterable, List, Mapping, Optional, Set, Tuple
+from typing import Iterable, List, Mapping, Optional, Tuple
 
 from nhlsuomi import utils
 from nhlsuomi.data import Game, Goalie, Skater
@@ -31,54 +31,8 @@ def _parse_schedule_games(
             yield game, state
 
 
-def _parse_best_playback_url(playbacks: List[Mapping]) -> Optional[str]:
-    # take the last item with name starting FLASH_ for now
-    # assuming it's the best quality
-    try:
-        with suppress(StopIteration):
-            best_playback = next(
-                filter(
-                    lambda x: x['name'].startswith('FLASH_'),
-                    reversed(playbacks),
-                )
-            )
-            return best_playback['url']
-
-    except Exception:
-        logger.exception('Playback parsing failed')
-
-    return None
-
-
-def _parse_recap_url(game: Mapping) -> Optional[str]:
-    try:
-        epg = game['content']['media']['epg']
-    except KeyError:
-        # content.media is not always present, just ignore those cases
-        return None
-
-    try:
-        # find the recap content
-        recap = next(filter(lambda x: x['title'] == 'Recap', epg))
-
-        # just take the first item with 'video' type
-        item = next(filter(lambda x: x['type'] == 'video', recap['items']))
-
-        return _parse_best_playback_url(item['playbacks'])
-
-    except StopIteration:
-        pass
-
-    except Exception:
-        logger.exception('Recap url parsing failed')
-
-    return None
-
-
 def parse_schedule_games(schedule: Mapping) -> Iterable[Game]:
     for game, state in _parse_schedule_games(schedule):
-        recap_url = _parse_recap_url(game)
-
         yield Game(
             game['teams']['home']['team']['abbreviation'],
             game['teams']['home']['score'],
@@ -86,57 +40,7 @@ def parse_schedule_games(schedule: Mapping) -> Iterable[Game]:
             game['teams']['away']['score'],
             state == 'Final',
             game['gamePk'],
-            recap_url,
         )
-
-
-def parse_schedule_highlights(
-    schedule: Mapping, keywords: Optional[Set[str]] = None
-) -> Iterable[Tuple[str, str]]:
-    if not keywords:
-        return []
-
-    keywords = {keyword.strip().casefold() for keyword in keywords}
-
-    highlights = []
-
-    for game, state in _parse_schedule_games(schedule):
-        if state != 'Final':
-            continue
-
-        try:
-            items = game['content']['highlights']['gameCenter']['items']
-        except KeyError:
-            # content.highlights is not always present, just ignore those cases
-            return []
-
-        for item in items:
-            try:
-                title = item['title']
-
-                if keywords:
-                    lowercase_title = title.casefold()
-
-                    for keyword in keywords:
-                        if keyword in lowercase_title:
-                            break
-                    else:
-                        # keyword not found so skip this highlight
-                        continue
-
-                id_ = int(item['id'])
-
-                if url := _parse_best_playback_url(item['playbacks']):
-                    highlights.append((id_, title, url))
-
-            except Exception:
-                logger.exception('Playback parsing failed')
-
-    # use dict sorted by id so only the latest highlight is returned in case
-    # of duplicate titles
-
-    yield from {title: url for (_, title, url) in sorted(highlights)}.items()
-
 
 def _parse_toi(toi: str) -> int:
     mm, ss = toi.split(':')
