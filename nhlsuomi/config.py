@@ -27,6 +27,6 @@ class Config:
 
     @staticmethod
     def load(config_path: pathlib.Path) -> Config:
-        logger.info(f'Load config from {config_path.resolve()}')
+        logger.info('Load config from %s', config_path.resolve())
         loaded_values = yaml.safe_load(config_path.read_text()) or {}
         return Config(**loaded_values)

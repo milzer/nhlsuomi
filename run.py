@@ -100,8 +100,8 @@ if __name__ == '__main__':
             parser.parse_schedule_highlights(schedule, highlight_keywords)
         )
 
-        template = pathlib.Path(config.template).read_text()
-        html = render(
+        template = pathlib.Path(config.template).read_text(encoding='utf-8')
+        html = render(  # pylint: disable=invalid-name
             template,
             games,
             highlights,
@@ -109,22 +109,22 @@ if __name__ == '__main__':
             upcoming_games,
         )
 
-        pathlib.Path(config.output).write_text(html)
+        pathlib.Path(config.output).write_text(html, encoding='utf-8')
 
         if not ongoing_games:
             break
 
         run_time_s = int(time.time() - start_time)
         if run_time_s >= config.quit_minutes * 60:
-            logger.info(f'Quitting with {ongoing_games} ongoing games')
+            logger.info('Quitting with %s ongoing games', ongoing_games)
             break
 
-        logger.debug(f'Waiting for {ongoing_games} games...')
+        logger.debug('Waiting for %s games...', ongoing_games)
         time.sleep(config.refresh_minutes * 60)
 
     if config.jsondump:
         dumpfile = pathlib.Path(config.jsondump)
-        logger.info(f'Dump JSON to {dumpfile.resolve()}')
+        logger.info('Dump JSON to %s', dumpfile.resolve())
         json_text = json.dumps(
             {
                 'date': datetime.now().strftime('%Y-%m-%d'),
@@ -133,4 +133,4 @@ if __name__ == '__main__':
                 'schedule': upcoming_games,
             }
         )
-        dumpfile.write_text(json_text)
+        dumpfile.write_text(json_text, encoding='utf-8')

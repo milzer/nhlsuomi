@@ -1,3 +1,4 @@
+# pylint: disable=protected-access,line-too-long
 import unittest
 
 from nhlsuomi.data import Game, Goalie, Skater

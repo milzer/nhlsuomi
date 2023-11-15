@@ -22,7 +22,7 @@ def _parse_schedule_games(
                 state = game['status']['abstractGameState']
 
             if state not in {'Preview', 'Live', 'Final', 'Scheduled'}:
-                logger.warning(f'Invalid game state: {state}')
+                logger.warning('Invalid game state: %s', state)
                 continue
 
             if state_filter and state != state_filter:
@@ -91,7 +91,7 @@ def parse_schedule_games(schedule: Mapping) -> Iterable[Game]:
 
 
 def parse_schedule_highlights(
-    schedule: Mapping, keywords: Set[str] = set()
+    schedule: Mapping, keywords: Optional[Set[str]] = None
 ) -> Iterable[Tuple[str, str]]:
     if not keywords:
         return []
@@ -195,7 +195,7 @@ def parse_schedule_upcoming(
     timezone: str,
     from_h: int,
     to_h: int,
-    format: str = '%d.%m. %H:%M',
+    fmt: str = '%d.%m. %H:%M',
 ) -> Iterable[Tuple[str, str, str]]:
     localizer = utils.dt_localizer(timezone)
 
@@ -207,4 +207,4 @@ def parse_schedule_upcoming(
             home = game['teams']['home']['team']['name']
             away = game['teams']['away']['team']['name']
 
-            yield (local_datetime.strftime(format), home, away)
+            yield (local_datetime.strftime(fmt), home, away)

@@ -1,7 +1,7 @@
+import datetime
 import json
 import time
 import urllib.request
-from datetime import date, timedelta
 from typing import Mapping, Optional
 from urllib.error import URLError
 from urllib.parse import urlencode
@@ -15,7 +15,7 @@ def _fetch_json(url: str, *, retries: int = 3) -> Mapping:
     for retry in range(retries + 1):
         try:
             action = 'Retry' if retry else 'Fetch'
-            logger.info(f'{action} {url}')
+            logger.info('%s %s', action, url)
 
             with urllib.request.urlopen(url) as res:
                 data = res.read()
@@ -23,13 +23,15 @@ def _fetch_json(url: str, *, retries: int = 3) -> Mapping:
                 return json.loads(data.decode(encoding))
 
         except URLError as e:
-            logger.warning(f'Fetch failed: {e}')
+            logger.warning('Fetch failed: %s', e)
             time.sleep(10)
 
     raise RuntimeError('Too many retries')
 
 
-def get_schedule(date: Optional[date] = None, days: int = 1) -> Mapping:
+def get_schedule(
+    date: Optional[datetime.date] = None, days: int = 1
+) -> Mapping:
     args = {
         'gameType': ','.join(('R', 'P', 'A', 'WCOH_PRELIM', 'WCOH_FINAL')),
         'expand': ','.join(
@@ -45,7 +47,7 @@ def get_schedule(date: Optional[date] = None, days: int = 1) -> Mapping:
         if days > 1:
             args['startDate'] = date.isoformat()
 
-            date += timedelta(days - 1)
+            date += datetime.timedelta(days - 1)
             args['endDate'] = date.isoformat()
         else:
             args['date'] = date.isoformat()
